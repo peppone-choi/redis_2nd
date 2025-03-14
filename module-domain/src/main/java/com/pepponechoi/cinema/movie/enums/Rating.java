@@ -1,4 +1,4 @@
-package movie.enums;
+package com.pepponechoi.cinema.movie.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

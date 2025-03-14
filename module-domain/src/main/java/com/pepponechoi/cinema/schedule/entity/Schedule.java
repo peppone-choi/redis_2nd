@@ -1,6 +1,7 @@
-package reservation.entity;
+package com.pepponechoi.cinema.schedule.entity;
 
-import entity.BaseEntity;
+
+import com.pepponechoi.cinema.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,26 +9,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import schedule.entity.Schedule;
-import seat.entity.Seat;
+import com.pepponechoi.cinema.movie.entity.Movie;
+import com.pepponechoi.cinema.screen.entity.Screen;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Reservation extends BaseEntity {
+public class Schedule extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "seat_id")
-    private Seat seat;
+    @JoinColumn(name = "screen_id")
+    private Screen screen;
 
     @ManyToOne
-    @JoinColumn(name = "schedule_id")
-    private Schedule schedule;
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
+
+    @Column(nullable = false)
+    private LocalDateTime start;
+
+    @Column(nullable = false)
+    private LocalDateTime end;
 }

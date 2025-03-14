@@ -1,4 +1,4 @@
-package entity;
+package com.pepponechoi.cinema.entity;
 
 
 import jakarta.persistence.Column;

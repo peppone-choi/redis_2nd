@@ -1,6 +1,7 @@
-package movie.entity;
+package com.pepponechoi.cinema.movie.entity;
 
-import entity.BaseEntity;
+
+import com.pepponechoi.cinema.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -12,8 +13,8 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import movie.enums.Genre;
-import movie.enums.Rating;
+import com.pepponechoi.cinema.movie.enums.Genre;
+import com.pepponechoi.cinema.movie.enums.Rating;
 
 @Entity
 @Table(name = "movie")
