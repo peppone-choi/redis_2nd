@@ -9,8 +9,10 @@ public class MovieResponse {
     private Long id;
     private String title;
     private String rating;
+    private String ratingCode;
     private LocalDate releaseDate;
     private String genre;
+    private String genreCode;
     private String thumbnail;
     private Integer runningTime;
 
@@ -18,8 +20,10 @@ public class MovieResponse {
         this.id = movie.getId();
         this.title = movie.getTitle();
         this.rating = movie.getRating().getValue();
+        this.ratingCode = movie.getRating().getCode();
         this.releaseDate = movie.getReleaseDate();
         this.genre = movie.getGenre().getValue();
+        this.genreCode = movie.getGenre().toString();
         this.thumbnail = movie.getThumbnail();
         this.runningTime = movie.getRunningTime();
     }
