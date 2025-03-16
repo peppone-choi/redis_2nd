@@ -1,5 +1,15 @@
 package com.pepponechoi.cinema.movie.repository;
 
-public interface MovieRepository {
+import com.pepponechoi.cinema.movie.entity.Movie;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
+public interface MovieRepository {
+    Movie save(Movie movie);
+
+    Optional<Movie> findById(Long id);
+    List<Movie> findAll();
+
+    void deleteByIdsIn(Collection<Long> ids);
 }
