@@ -18,13 +18,13 @@ import com.pepponechoi.cinema.movie.enums.Genre;
 import com.pepponechoi.cinema.movie.enums.Rating;
 
 @Entity
-@Table(name = "movie")
+@Table(name = "movies")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class Movie extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "movie_id")
     private long id;
 
     @Column(nullable = false)

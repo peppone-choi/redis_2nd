@@ -17,7 +17,7 @@ import com.pepponechoi.cinema.schedule.entity.Schedule;
 import com.pepponechoi.cinema.seat.entity.Seat;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class Reservation extends BaseEntity {

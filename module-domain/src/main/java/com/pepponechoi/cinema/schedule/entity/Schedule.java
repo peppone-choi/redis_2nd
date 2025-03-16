@@ -20,7 +20,7 @@ import com.pepponechoi.cinema.screen.entity.Screen;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name = "schedule")
+@Table(name = "schedules")
 public class Schedule extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

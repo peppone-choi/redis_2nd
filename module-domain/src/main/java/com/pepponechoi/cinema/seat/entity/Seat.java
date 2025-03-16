@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import com.pepponechoi.cinema.screen.entity.Screen;
 
-@Table(name = "seat")
+@Table(name = "seats")
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
