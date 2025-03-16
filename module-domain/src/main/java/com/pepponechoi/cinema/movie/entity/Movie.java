@@ -47,17 +47,19 @@ public class Movie extends BaseEntity {
     @Column(nullable = false)
     private Integer runningTime;
 
-    protected Movie(String title, Rating rating, LocalDate releaseDate, Genre genre, String thumbnail, Integer runningTime) {
+    protected Movie(String title, Rating rating, LocalDate releaseDate, Genre genre,
+        String thumbnail, Integer runningTime, String createdBy) {
         this.title = title;
         this.rating = rating;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.thumbnail = thumbnail;
         this.runningTime = runningTime;
+        this.setCreatedBy(createdBy);
     }
 
     public static Movie of(String title, Rating rating, LocalDate releaseDate, Genre genre,
-        String thumbnail, Integer runningTime) {
-        return new Movie(title, rating, releaseDate, genre, thumbnail, runningTime);
+        String thumbnail, Integer runningTime, String createdBy) {
+        return new Movie(title, rating, releaseDate, genre, thumbnail, runningTime, createdBy);
     }
 }

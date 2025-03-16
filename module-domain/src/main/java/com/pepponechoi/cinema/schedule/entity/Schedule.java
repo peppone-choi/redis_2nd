@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,10 +20,11 @@ import com.pepponechoi.cinema.screen.entity.Screen;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Table(name = "schedule")
 public class Schedule extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "schedule_id")
     private Long id;
 
     @ManyToOne
@@ -38,4 +40,17 @@ public class Schedule extends BaseEntity {
 
     @Column(nullable = false)
     private LocalDateTime end;
+
+    protected Schedule(Screen screen, Movie movie, LocalDateTime start, LocalDateTime end,
+        String createdBy) {
+        this.screen = screen;
+        this.movie = movie;
+        this.start = start;
+        this.end = end;
+        this.setCreatedBy(createdBy);
+    }
+
+    public static Schedule of(Screen screen, Movie movie, LocalDateTime start, LocalDateTime end, String createdBy) {
+        return new Schedule(screen, movie, start, end, createdBy);
+    }
 }

@@ -35,4 +35,14 @@ public class Seat extends BaseEntity {
     @Setter
     private Screen screen;
 
+    protected Seat(Character rowNo, Integer columnNo, Screen screen, String createdBy) {
+        this.rowNo = rowNo;
+        this.columnNo = columnNo;
+        this.screen = screen;
+        this.setCreatedBy(createdBy);
+    }
+
+    public static Seat of(Character rowNo, Integer columnNo, Screen screen, String createdBy) {
+        return new Seat(rowNo, columnNo, screen, createdBy);
+    }
 }
