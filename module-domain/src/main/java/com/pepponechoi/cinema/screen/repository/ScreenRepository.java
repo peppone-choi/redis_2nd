@@ -7,7 +7,7 @@ import java.util.List;
 public interface ScreenRepository {
     Screen save(Screen screen);
 
-    Screen findById(int id);
+    Screen findById(Long id);
     List<Screen> findAll();
 
     void deleteByIdsIn(Collection<Long> ids);
