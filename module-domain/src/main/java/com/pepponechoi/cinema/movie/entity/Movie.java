@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import com.pepponechoi.cinema.movie.enums.Genre;
 import com.pepponechoi.cinema.movie.enums.Rating;
@@ -19,6 +20,7 @@ import com.pepponechoi.cinema.movie.enums.Rating;
 @Entity
 @Table(name = "movie")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Movie extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
