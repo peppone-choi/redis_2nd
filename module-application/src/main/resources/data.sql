@@ -155,9 +155,15 @@ INSERT INTO movies (title, rating, release_date, genre, thumbnail, running_time,
 
 -- 상영관 3개 생성
 INSERT INTO screens (name, created_at, updated_at, created_by, updated_by) VALUES
-                                                                              ('스크린 1', NOW(), NOW(), 'system', 'system'),
-                                                                              ('스크린 2', NOW(), NOW(), 'system', 'system'),
-                                                                              ('스크린 3', NOW(), NOW(), 'system', 'system');
+                                                                              ('노떼 시네마 1관',
+                                                                               NOW(),
+                                                                               NOW(), 'system', 'system'),
+                                                                              ('쒸쥐뷔 프리미엄 8관', NOW
+                                                                              (),
+                                                                               NOW(), 'system', 'system'),
+                                                                              ('기가테라박스 2관', NOW(),
+                                                                               NOW(),
+                                                                               'system', 'system');
 
 -- 좌석 데이터 (상영관 1)
 INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by)
