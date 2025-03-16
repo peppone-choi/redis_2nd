@@ -4,6 +4,8 @@
 
 ## ERD (Entity-Relationship Diagram)
 
+![ERD.png](ERD.png)
+
 ### 테이블 구성
 
  - movie: 영화의 기본정보
