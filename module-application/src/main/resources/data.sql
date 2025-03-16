@@ -158,8 +158,7 @@ INSERT INTO screens (name, created_at, updated_at, created_by, updated_by) VALUE
                                                                               ('노떼 시네마 1관',
                                                                                NOW(),
                                                                                NOW(), 'system', 'system'),
-                                                                              ('쒸쥐뷔 프리미엄 8관', NOW
-                                                                              (),
+                                                                              ('쒸쥐뷔 프리미엄 8관', NOW(),
                                                                                NOW(), 'system', 'system'),
                                                                               ('기가테라박스 2관', NOW(),
                                                                                NOW(),
