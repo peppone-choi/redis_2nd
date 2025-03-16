@@ -1,5 +1,8 @@
 package com.pepponechoi.cinema.movie.service;
 
-public interface MovieService {
+import com.pepponechoi.cinema.movie.dto.response.MovieResponse;
+import java.util.List;
 
+public interface MovieService {
+    List<MovieResponse> findAllMoviesIsShowing();
 }
