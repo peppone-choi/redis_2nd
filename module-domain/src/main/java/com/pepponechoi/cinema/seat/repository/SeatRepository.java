@@ -1,5 +1,15 @@
 package com.pepponechoi.cinema.seat.repository;
 
-public interface SeatRepository {
+import com.pepponechoi.cinema.seat.entity.Seat;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
+public interface SeatRepository {
+    Seat save(Seat seat);
+
+    Optional<Seat> findById(Long id);
+    List<Seat> findAll();
+
+    void deleteByIdsIn(Collection<Long> ids);
 }
