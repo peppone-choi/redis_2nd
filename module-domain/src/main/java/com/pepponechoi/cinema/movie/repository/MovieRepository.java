@@ -11,5 +11,5 @@ public interface MovieRepository {
     Optional<Movie> findById(Long id);
     List<Movie> findAll();
 
-    void deleteByIdsIn(Collection<Long> ids);
+    void deleteByIdIn(Collection<Long> ids);
 }

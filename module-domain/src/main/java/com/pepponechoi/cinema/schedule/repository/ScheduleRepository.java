@@ -11,5 +11,5 @@ public interface ScheduleRepository {
     Optional<Schedule> findById(Long id);
     List<Schedule> findAll();
 
-    void deleteByIdsIn(Collection<Long> ids);
+    void deleteByIdIn(Collection<Long> ids);
 }

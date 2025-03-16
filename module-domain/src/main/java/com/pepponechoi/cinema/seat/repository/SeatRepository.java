@@ -11,5 +11,5 @@ public interface SeatRepository {
     Optional<Seat> findById(Long id);
     List<Seat> findAll();
 
-    void deleteByIdsIn(Collection<Long> ids);
+    void deleteByIdIn(Collection<Long> ids);
 }

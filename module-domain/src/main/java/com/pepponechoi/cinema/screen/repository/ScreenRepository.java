@@ -11,5 +11,5 @@ public interface ScreenRepository {
     Optional<Screen> findById(Long id);
     List<Screen> findAll();
 
-    void deleteByIdsIn(Collection<Long> ids);
+    void deleteByIdIn(Collection<Long> ids);
 }
