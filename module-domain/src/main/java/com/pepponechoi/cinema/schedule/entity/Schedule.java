@@ -53,4 +53,8 @@ public class Schedule extends BaseEntity {
     public static Schedule of(Screen screen, Movie movie, LocalDateTime start, LocalDateTime end, String createdBy) {
         return new Schedule(screen, movie, start, end, createdBy);
     }
+
+    public void link() {
+        this.getMovie().getSchedules().add(this);
+    }
 }

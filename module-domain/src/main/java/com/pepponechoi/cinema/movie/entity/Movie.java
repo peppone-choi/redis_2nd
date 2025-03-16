@@ -2,6 +2,9 @@ package com.pepponechoi.cinema.movie.entity;
 
 
 import com.pepponechoi.cinema.entity.BaseEntity;
+import com.pepponechoi.cinema.movie.enums.Genre;
+import com.pepponechoi.cinema.movie.enums.Rating;
+import com.pepponechoi.cinema.schedule.entity.Schedule;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,12 +13,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import com.pepponechoi.cinema.movie.enums.Genre;
-import com.pepponechoi.cinema.movie.enums.Rating;
 
 @Entity
 @Table(name = "movies")
@@ -47,6 +51,9 @@ public class Movie extends BaseEntity {
     @Column(nullable = false)
     private Integer runningTime;
 
+    @Transient
+    private final List<Schedule> schedules = new ArrayList<>();
+
     protected Movie(String title, Rating rating, LocalDate releaseDate, Genre genre,
         String thumbnail, Integer runningTime, String createdBy) {
         this.title = title;
@@ -61,5 +68,9 @@ public class Movie extends BaseEntity {
     public static Movie of(String title, Rating rating, LocalDate releaseDate, Genre genre,
         String thumbnail, Integer runningTime, String createdBy) {
         return new Movie(title, rating, releaseDate, genre, thumbnail, runningTime, createdBy);
+    }
+
+    public void clearSchedules() {
+        this.schedules.clear();
     }
 }
