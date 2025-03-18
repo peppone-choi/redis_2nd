@@ -48,20 +48,20 @@ public class Movie extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String thumbnail;
 
-    @Column(nullable = false)
-    private Integer runningTime;
+    @Column(name = "running_time", nullable = false)
+    private Integer runningTimeMin;
 
     @Transient
     private final List<Schedule> schedules = new ArrayList<>();
 
     protected Movie(String title, Rating rating, LocalDate releaseDate, Genre genre,
-        String thumbnail, Integer runningTime, String createdBy) {
+        String thumbnail, Integer runningTimeMin, String createdBy) {
         this.title = title;
         this.rating = rating;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.thumbnail = thumbnail;
-        this.runningTime = runningTime;
+        this.runningTimeMin = runningTimeMin;
         this.setCreatedBy(createdBy);
     }
 

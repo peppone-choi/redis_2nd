@@ -18,7 +18,7 @@ public record MovieResponse(
     String genre,
     String genreCode,
     String thumbnail,
-    Integer runningTime,
+    Integer runningTimeMin,
     Set<NestedScheduleResponse> schedule
 ) {
     public static MovieResponse of(final Movie movie) {
@@ -31,7 +31,7 @@ public record MovieResponse(
             movie.getGenre().getValue(),
             movie.getGenre().getCode(),
             movie.getThumbnail(),
-            movie.getRunningTime(),
+            movie.getRunningTimeMin(),
             movie.getSchedules().stream()
             .sorted(Comparator.comparing(Schedule::getStart))
             .map(NestedScheduleResponse::of)
