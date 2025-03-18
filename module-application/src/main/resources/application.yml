@@ -6,7 +6,7 @@ spring:
     name: movie
 
   datasource:
-    url: jdbc:mysql://localhost:3305/movie
+    url: jdbc:mysql://localhost:3305/movie?character_set_server=utf8mb4&connectionCollation=utf8mb4_unicode_ci
     username: user
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
