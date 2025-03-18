@@ -17,7 +17,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<MovieResponse> findAllMoviesIsShowing() {
-        List<Movie> movieList = movieRepository.findAndFetchSchedule();
-        return movieList.stream().map(MovieResponse::new).toList();
+        List<Movie> movies = movieRepository.findAndFetchSchedule();
+        return movies.stream().map(MovieResponse::of).toList();
     }
 }

@@ -8,52 +8,51 @@ import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-import lombok.Data;
 
-@Data
-public class MovieResponse {
-    private Long id;
-    private String title;
-    private String rating;
-    private String ratingCode;
-    private LocalDate releaseDate;
-    private String genre;
-    private String genreCode;
-    private String thumbnail;
-    private Integer runningTime;
-    private Set<NestedScheduleResponse> schedule = new LinkedHashSet<>();
-
-    public MovieResponse(Movie movie) {
-        this.id = movie.getId();
-        this.title = movie.getTitle();
-        this.rating = movie.getRating().getValue();
-        this.ratingCode = movie.getRating().getCode();
-        this.releaseDate = movie.getReleaseDate();
-        this.genre = movie.getGenre().getValue();
-        this.genreCode = movie.getGenre().toString();
-        this.thumbnail = movie.getThumbnail();
-        this.runningTime = movie.getRunningTime();
-        this.schedule =
+public record MovieResponse(
+    Long id,
+    String title,
+    String rating,
+    String ratingCode,
+    LocalDate releaseDate,
+    String genre,
+    String genreCode,
+    String thumbnail,
+    Integer runningTime,
+    Set<NestedScheduleResponse> schedule
+) {
+    public static MovieResponse of(final Movie movie) {
+        return new MovieResponse(
+            movie.getId(),
+            movie.getTitle(),
+            movie.getRating().getValue(),
+            movie.getRating().getCode(),
+            movie.getReleaseDate(),
+            movie.getGenre().getValue(),
+            movie.getGenre().getCode(),
+            movie.getThumbnail(),
+            movie.getRunningTime(),
             movie.getSchedules().stream()
-                .sorted(Comparator.comparing(Schedule::getStart))
-                .map(NestedScheduleResponse::new)
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+            .sorted(Comparator.comparing(Schedule::getStart))
+            .map(NestedScheduleResponse::of)
+            .collect(Collectors.toCollection(LinkedHashSet::new))
+        );
     }
-
-    @Data
-    private static class NestedScheduleResponse {
-        private Long id;
-        private Long screenId;
-        private String screenName;
-        private LocalDateTime start;
-        private LocalDateTime end;
-
-        private NestedScheduleResponse(Schedule schedule) {
-            this.id = schedule.getId();
-            this.screenId = schedule.getScreen().getId();
-            this.screenName = schedule.getScreen().getName();
-            this.start = schedule.getStart();
-            this.end = schedule.getEnd();
+    private record NestedScheduleResponse(
+        Long id,
+        Long screenId,
+        String screenName,
+        LocalDateTime start,
+        LocalDateTime end
+    ) {
+        public static NestedScheduleResponse of(final Schedule schedule) {
+            return new NestedScheduleResponse(
+                schedule.getId(),
+                schedule.getScreen().getId(),
+                schedule.getScreen().getName(),
+                schedule.getStart(),
+                schedule.getEnd()
+            );
         }
     }
 }
