@@ -4,45 +4,48 @@ import com.pepponechoi.cinema.reservation.entity.Reservation;
 import com.pepponechoi.cinema.schedule.entity.Schedule;
 import com.pepponechoi.cinema.seat.entity.Seat;
 import java.time.LocalDateTime;
-import lombok.Data;
 
-@Data
-public class ReservationResponse {
-    private Long id;
-    private NestedScheduleResponse schedule;
-    private NestedSeatResponse seat;
+public record ReservationResponse(
+    Long id,
+    NestedScheduleResponse schedule,
+    NestedSeatResponse seat
+) {
 
-    public ReservationResponse(Reservation reservation) {
-        this.id = reservation.getId();
-        this.schedule = new NestedScheduleResponse(reservation.getSchedule());
-        this.seat = new NestedSeatResponse(reservation.getSeat());
+    public static ReservationResponse of(Reservation reservation) {
+        return new ReservationResponse(
+            reservation.getId(),
+            NestedScheduleResponse.of(reservation.getSchedule()),
+            NestedSeatResponse.of(reservation.getSeat())
+        );
     }
 
-    @Data
-    private static class NestedScheduleResponse {
-        private Long id;
-        private String movieTitle;
-        private LocalDateTime start;
-        private LocalDateTime end;
-
-        public NestedScheduleResponse(Schedule schedule) {
-            this.id = schedule.getId();
-            this.movieTitle = schedule.getMovie().getTitle();
-            this.start = schedule.getStart();
-            this.end = schedule.getEnd();
+    public record NestedScheduleResponse(
+        Long id,
+        String movieTitle,
+        LocalDateTime start,
+        LocalDateTime end
+    ) {
+        public static NestedScheduleResponse of(Schedule schedule) {
+            return new NestedScheduleResponse(
+                schedule.getId(),
+                schedule.getMovie().getTitle(),
+                schedule.getStart(),
+                schedule.getEnd()
+            );
         }
     }
 
-    @Data
-    private static class NestedSeatResponse {
-        private Long id;
-        private Character row;
-        private Integer column;
-
-        public NestedSeatResponse(Seat seat) {
-            this.id = seat.getId();
-            this.row = seat.getRowNo();
-            this.column = seat.getColumnNo();
+    private record NestedSeatResponse(
+        Long id,
+        Character row,
+        Integer column
+    ) {
+        public static NestedSeatResponse of(Seat seat) {
+            return new NestedSeatResponse(
+                seat.getId(),
+                seat.getRowNo(),
+                seat.getColumnNo()
+            );
         }
     }
 }
