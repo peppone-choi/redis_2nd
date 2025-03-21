@@ -70,3 +70,90 @@
 ## 아키텍쳐
  - 기본 적으로 layered architecture 로 구성.
  - 도메인 중심적인 관심사 분리를 위한 clean architecture 구성.
+
+# 성능 테스트 보고서
+
+## 전제 조건
+- **DAU**: 100000명
+- **1명당 1일 평균 접속 수**: 3번
+- **피크 시간대의 집중률**: 평소 트래픽의 10배
+- **Throughput 계산**:
+    - **1일 총 접속 수** = DAU × 1명당 1일 평균 접속 수 = N × 2 = **2N** (1일 총 접속 수 : 1000000번)
+    - **1일 평균 RPS** = 1일 총 접속 수 ÷ 86,400 (초/일)= 2N ÷ 86,400 ≈ **X** **RPS** (약 12번)
+    - **1일 최대 RPS** = 1일 평균 RPS × (최대 트래픽 / 평소 트래픽)= X × 10 = **10X RPS** (약 120번)
+- VU: 100000명
+- optional
+    - thresholds
+        - e.g p(95) 의 응답 소요 시간 200ms 이하
+        - 실패율 1% 이하
+
+## DATA 갯수
+- **Movies** : 500개
+- **Schedules** : 976개
+- **Screens** : 10개
+
+## PRE - 리팩토링 및 2주차 개발 전
+
+### 쿼리 (실제로 동작하는 쿼리)
+
+```sql
+    select
+        m1_0.movie_id,
+        m1_0.created_at,
+        m1_0.created_by,
+        m1_0.genre,
+        m1_0.rating,
+        m1_0.release_date,
+        m1_0.running_time,
+        m1_0.thumbnail,
+        m1_0.title,
+        m1_0.updated_at,
+        m1_0.updated_by,
+        s1_0.schedule_id,
+        s1_0.created_at,
+        s1_0.created_by,
+        s1_0.end,
+        s1_0.movie_id,
+        s2_0.id,
+        s2_0.created_at,
+        s2_0.created_by,
+        s2_0.name,
+        s2_0.updated_at,
+        s2_0.updated_by,
+        s1_0.start,
+        s1_0.updated_at,
+        s1_0.updated_by
+    from
+        movies m1_0
+            left join
+        schedules s1_0
+        on s1_0.movie_id=m1_0.movie_id
+            left join
+        screens s2_0
+        on s2_0.id=s1_0.screen_id
+```
+
+### 실행 계획
+- 없음
+
+### 결과 스크린샷
+![img.png](pre0.png)
+### 부하 테스트 결과
+
+| 측정 항목 | 측정치      |   
+| --- |----------|
+| **총 요청 수** | 8330     |
+| **평균 요청 시간 (ms)** | 7230     |
+| **최소 요청 시간 (ms)** | 41.43    |
+| **최대 요청 시간 (ms)** | 17160    | 
+| **초당 요청 처리량** | 112.58/s |
+| **데이터 송신 속도** | 9.8kB/s  | 
+| **데이터 수신 속도** | 25MB/s   |
+```
+✗ status is 200
+ ↳  94% — ✓ 7831 / ✗ 499
+✗ response time < 200ms
+ ↳  6% — ✓ 501 / ✗ 7829
+```
+
+- 처참한 실패
