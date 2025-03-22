@@ -1,7 +1,7 @@
 package com.pepponechoi.cinema.movie.entity;
 
 
-import com.pepponechoi.cinema.entity.BaseEntity;
+import com.pepponechoi.cinema.BaseEntity;
 import com.pepponechoi.cinema.movie.enums.Genre;
 import com.pepponechoi.cinema.movie.enums.Rating;
 import com.pepponechoi.cinema.schedule.entity.Schedule;

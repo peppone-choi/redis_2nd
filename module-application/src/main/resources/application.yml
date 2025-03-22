@@ -2,14 +2,23 @@ server:
   port: 8080
 
 spring:
+  main:
+    lazy-initialization: true
   application:
     name: movie
-
   datasource:
     url: jdbc:mysql://localhost:3305/movie?character_set_server=utf8mb4&connectionCollation=utf8mb4_unicode_ci
     username: user
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: lazy
   jpa:
     hibernate:
       ddl-auto: create
@@ -18,6 +27,8 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
   sql:
     init:
       mode: always

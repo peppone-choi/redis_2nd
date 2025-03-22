@@ -1,4 +1,4 @@
-package com.pepponechoi.cinema.entity;
+package com.pepponechoi.cinema;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

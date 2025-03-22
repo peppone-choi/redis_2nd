@@ -4,12 +4,24 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
+repositories {
+	mavenCentral()
+}
+
+ext {
+	querydslVersion = '5.0.0' // 실제 사용 버전으로 일치시킴
+}
+
 bootJar {
 	enabled = false
 }
 
-repositories {
-	mavenCentral()
+jar {
+	enabled = true
+}
+
+bootRun {
+	enabled = false
 }
 
 allprojects {
@@ -20,6 +32,11 @@ allprojects {
 		toolchain {
 			languageVersion = JavaLanguageVersion.of(21)
 		}
+	}
+
+	tasks.withType(JavaCompile) {
+		options.fork = true
+		options.incremental = true
 	}
 }
 
@@ -50,76 +67,38 @@ subprojects {
 	tasks.named('test') {
 		useJUnitPlatform()
 	}
-}
-
-project(":module-common") {
-	dependencies {
-		runtimeOnly 'com.mysql:mysql-connector-j'
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-		// Spring boot 3.x이상에서 QueryDsl 패키지를 정의하는 방법
-		implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-		annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
-		annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-		annotationProcessor "jakarta.persistence:jakarta.persistence-api"
-	}
 
 	bootJar {
 		enabled = false
-	}
-}
-
-project(":module-api") {
-	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-		annotationProcessor "jakarta.persistence:jakarta.persistence-api"
-		implementation project(":module-domain")
-		implementation project(":module-common")
-	}
-
-	bootJar {
-		enabled = false
-	}
-}
-
-project(":module-application") {
-
-	bootJar {
-		enabled = true
 	}
 
 	jar {
-		enabled = false
+		enabled = true
 	}
 
-	dependencies {
-		implementation project(":module-api")
-		implementation project(":module-common")
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-		annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+	bootRun {
+		enabled = false
 	}
 }
 
-project(":module-domain") {
-
+// 공통 모듈: 데이터 엑세스 계층 담당
+project(":module-common") {
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		runtimeOnly 'com.mysql:mysql-connector-j'
+	}
+}
+
+// 도메인 모듈: 엔티티와 비즈니스 로직 관리
+project(":module-domain") {
+	dependencies {
 		implementation project(":module-common")
-		// Spring boot 3.x이상에서 QueryDsl 패키지를 정의하는 방법
-		implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-		annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
-		annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation "com.querydsl:querydsl-jpa:${querydslVersion}:jakarta"
+		annotationProcessor "com.querydsl:querydsl-apt:${querydslVersion}:jakarta"
 		annotationProcessor "jakarta.persistence:jakarta.persistence-api"
-
 	}
 
-	bootJar {
-		enabled = false
-	}
-
-	// QueryDsl 빌드 옵션 (선택)
 	def querydslDir = "$buildDir/generated/querydsl"
 
 	sourceSets {
@@ -135,3 +114,31 @@ project(":module-domain") {
 	}
 }
 
+// API 모듈: 컨트롤러와 API 엔드포인트 관리
+project(":module-api") {
+	dependencies {
+		implementation project(":module-domain")
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	}
+}
+
+// 애플리케이션 모듈: 실행 가능한 애플리케이션
+project(":module-application") {
+	bootJar {
+		enabled = true
+	}
+
+	jar {
+		enabled = false
+	}
+
+	bootRun {
+		enabled = true
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation project(":module-api")
+	}
+}

@@ -1,7 +1,7 @@
 package com.pepponechoi.cinema.schedule.entity;
 
 
-import com.pepponechoi.cinema.entity.BaseEntity;
+import com.pepponechoi.cinema.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
