@@ -2,6 +2,7 @@ package com.pepponechoi.cinema.movie.service;
 
 import com.pepponechoi.cinema.movie.dto.request.FindAllRequest;
 import com.pepponechoi.cinema.movie.dto.response.MovieResponse;
+import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.repository.MovieRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<MovieResponse> findAllMoviesIsShowing(FindAllRequest request) {
-        return null;
+        List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
+        return movies.stream().map(MovieResponse::of).toList();
     }
 }
 
