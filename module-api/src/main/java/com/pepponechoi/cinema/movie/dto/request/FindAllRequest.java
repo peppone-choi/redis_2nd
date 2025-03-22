@@ -6,7 +6,7 @@ import com.pepponechoi.cinema.movie.enums.Genre;
 
 public record FindAllRequest(
         String title,
-        @EnumValid(target = Genre.class)
+        @EnumValid(target = Genre.class, nullable = true)
         String genre
 ) {
     public FindMovies toFinds() {

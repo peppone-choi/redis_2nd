@@ -19,6 +19,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<MovieResponse> findAllMoviesIsShowing(FindAllRequest request) {
         List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
+        System.out.println(movies);
         return movies.stream().map(MovieResponse::of).toList();
     }
 }

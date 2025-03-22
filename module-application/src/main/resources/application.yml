@@ -2,8 +2,6 @@ server:
   port: 8080
 
 spring:
-  main:
-    lazy-initialization: true
   application:
     name: movie
   datasource:
@@ -12,16 +10,14 @@ spring:
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
-      maximum-pool-size: 10
-      minimum-idle: 5
-      connection-timeout: 20000
-  data:
-    jpa:
-      repositories:
-        bootstrap-mode: lazy
+      maximum-pool-size: 2
+      connection-timeout: 3000
+      minimum-idle: 2
+      idle-timeout: 0
+      max-lifetime: 170000
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     defer-datasource-initialization: true
     properties:
       hibernate:
