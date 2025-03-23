@@ -12,17 +12,23 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movies", indexes = {
+    @Index(name = "idx_movies_title_genre", columnList = "title, genre"),
+    @Index(name = "idx_movies_genre", columnList = "genre"),
+    @Index(name = "idx_movies_title", columnList = "title"),
+})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class Movie extends BaseEntity {
@@ -51,26 +57,23 @@ public class Movie extends BaseEntity {
     @Column(name = "running_time", nullable = false)
     private Integer runningTimeMin;
 
-    @Transient
-    private final List<Schedule> schedules = new ArrayList<>();
+    @OneToMany(mappedBy = "movie")
+    private List<Schedule> schedules = new ArrayList<>();
 
     protected Movie(String title, Rating rating, LocalDate releaseDate, Genre genre,
-        String thumbnail, Integer runningTimeMin, String createdBy) {
+        String thumbnail, Integer runningTimeMin, String createdBy, Collection<Schedule> schedules) {
         this.title = title;
         this.rating = rating;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.thumbnail = thumbnail;
         this.runningTimeMin = runningTimeMin;
+        this.schedules = schedules.stream().toList();
         this.setCreatedBy(createdBy);
     }
 
     public static Movie of(String title, Rating rating, LocalDate releaseDate, Genre genre,
-        String thumbnail, Integer runningTime, String createdBy) {
-        return new Movie(title, rating, releaseDate, genre, thumbnail, runningTime, createdBy);
-    }
-
-    public void clearSchedules() {
-        this.schedules.clear();
+        String thumbnail, Integer runningTime, String createdBy, Collection<Schedule> schedules) {
+        return new Movie(title, rating, releaseDate, genre, thumbnail, runningTime, createdBy, schedules);
     }
 }

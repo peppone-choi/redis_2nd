@@ -9,6 +9,7 @@ import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.enums.Genre;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
@@ -20,10 +21,12 @@ public class MovieQueryDslRepositoryImpl implements MovieQueryDslRepository {
     public List<Movie> findAllWithSchedule(FindMovies findMovies) {
         BooleanBuilder whereClause = new BooleanBuilder();
 
+        LocalDateTime now = LocalDateTime.now();
+
         String title = findMovies.title();
 
         if (title != null && !title.trim().isEmpty()) {
-            title = title.trim().toLowerCase();
+            title = "%" + title.trim().toLowerCase() + "%";
             whereClause.and(movie.title.trim().toLowerCase().like(title));
         }
 
@@ -33,19 +36,16 @@ public class MovieQueryDslRepositoryImpl implements MovieQueryDslRepository {
             whereClause.and(movie.genre.eq(Genre.valueOf(genre)));
         }
 
-//        LocalDateTime now = LocalDateTime.now();
-//
-//        whereClause.and(qSchedule.start.after(now)).and(qSchedule.end.before(now));
 
         return queryFactory
             .selectFrom(movie)
             .where(whereClause)
-            .join(schedule)
-            .on(movie.id.eq(schedule.id))
-            .orderBy(schedule.start.asc())
-            .fetchJoin()
-            .join(screen).on(movie.id.eq(screen.id)).fetchJoin()
-            .orderBy(movie.releaseDate.desc())
-            .fetch();
+            .join(movie.schedules, schedule)
+            .where(schedule.start.after(now)).fetchJoin()
+            .join(schedule.screen, screen).fetchJoin()
+            .orderBy(
+                schedule.start.asc(),
+                movie.releaseDate.desc()
+            ).fetch();
     }
 }

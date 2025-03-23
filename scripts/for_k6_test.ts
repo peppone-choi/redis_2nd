@@ -4,24 +4,23 @@ import { sleep, check, group } from "k6";
 const DAU = 100000;
 const peak = DAU * 0.2;
 const peakMin = 120;
-const sampleDurationMin = 30;
+const sampleDurationMin = 5;
 const peakSampleUser = Math.round(peak * (sampleDurationMin / peakMin));
 
 
 export const options = {
   discardResponseBodies: true,
   scenarios: {
-    "smoke-test": {
-      executor: 'constant-vus',
-      vus: 1,
-      duration: `10m`
-    },
     "load-test": {
-      executor: 'per-vu-iterations',
-      vus: peakSampleUser,
-      iterations: 10,
-      maxDuration: `${sampleDurationMin}m`,
-      startTime: "10m"
+      executor: 'ramping-vus', // 점진적으로 사용자 수 증가
+      startVUs: 1,
+      stages: [
+        { duration: '1m', target: Math.round(peakSampleUser * 0.3) },
+        { duration: '2m', target: Math.round(peakSampleUser * 0.6) },
+        { duration: '1m', target: peakSampleUser },
+        { duration: '1m', target: 0 }
+      ],
+      gracefulRampDown: '30s',
     },
   },
   thresholds: {
@@ -31,11 +30,11 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get("http://localhost:8080/api/v1/movies");
+  const res = http.get("http://localhost:8080/api/v1/movies?genre=ACTION&title="+encodeURI("기생충"));
 
   check(res, {
     "status is 200": (r) => r.status === 200,
     "response time < 200ms": (r) => r.timings.duration < 200
   })
-  sleep(0.1);
+  sleep(1);
 }

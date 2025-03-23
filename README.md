@@ -92,7 +92,7 @@
 - **Schedules** : 976개
 - **Screens** : 10개
 
-## PRE - 리팩토링 및 2주차 개발 전
+## 1 - 인덱스 적용 전
 
 ### 쿼리 (실제로 동작하는 쿼리)
 
@@ -105,15 +105,11 @@
         m1_0.rating,
         m1_0.release_date,
         m1_0.running_time,
-        m1_0.thumbnail,
-        m1_0.title,
-        m1_0.updated_at,
-        m1_0.updated_by,
+        s1_0.movie_id,
         s1_0.schedule_id,
         s1_0.created_at,
         s1_0.created_by,
         s1_0.end,
-        s1_0.movie_id,
         s2_0.id,
         s2_0.created_at,
         s2_0.created_by,
@@ -122,38 +118,108 @@
         s2_0.updated_by,
         s1_0.start,
         s1_0.updated_at,
-        s1_0.updated_by
-    from
-        movies m1_0
-            left join
-        schedules s1_0
-        on s1_0.movie_id=m1_0.movie_id
-            left join
-        screens s2_0
-        on s2_0.id=s1_0.screen_id
+        s1_0.updated_by,
+        m1_0.thumbnail,
+        m1_0.title,
+        m1_0.updated_at,
+        m1_0.updated_by from movies m1_0
+                                 join
+                             schedules s1_0
+                             on m1_0.movie_id=s1_0.movie_id
+                                 join
+                             screens s2_0
+                             on s2_0.id=s1_0.screen_id
+    where
+        lower(trim(BOTH from m1_0.title)) like ? escape '!'
+            and m1_0.genre=?
+            and s1_0.start>?
+    order by
+        s1_0.start,
+        m1_0.release_date desc
 ```
 
 ### 실행 계획
-- 없음
+![0번 실행 계획](exp0.png)
 
 ### 결과 스크린샷
-![img.png](pre0.png)
+![img.png](exp0.png)
+### 부하 테스트 결과
+![img.png](test0.png)
+| 측정 항목 | 측정치 |   
+| --- | --- |
+| **총 요청 수** | 40095 |
+| **평균 요청 시간 (ms)** | 1960 ms |
+| **최소 요청 시간 (ms)** | 42.97 ms |
+| **최대 요청 시간 (ms)** | 5870 ms | 
+| **초당 요청 처리량** | 133.2 req/s |
+| **데이터 송신 속도** | 19 kB/s | 
+| **데이터 수신 속도** | 1.2 MB/s |
+
+## 1 - 인덱스 적용 후
+
+### 쿼리 (실제로 동작하는 쿼리)
+
+```sql
+    select
+        m1_0.movie_id,
+        m1_0.created_at,
+        m1_0.created_by,
+        m1_0.genre,
+        m1_0.rating,
+        m1_0.release_date,
+        m1_0.running_time,
+        s1_0.movie_id,
+        s1_0.schedule_id,
+        s1_0.created_at,
+        s1_0.created_by,
+        s1_0.end,
+        s2_0.id,
+        s2_0.created_at,
+        s2_0.created_by,
+        s2_0.name,
+        s2_0.updated_at,
+        s2_0.updated_by,
+        s1_0.start,
+        s1_0.updated_at,
+        s1_0.updated_by,
+        m1_0.thumbnail,
+        m1_0.title,
+        m1_0.updated_at,
+        m1_0.updated_by from movies m1_0
+                                 join
+                             schedules s1_0
+                             on m1_0.movie_id=s1_0.movie_id
+                                 join
+                             screens s2_0
+                             on s2_0.id=s1_0.screen_id
+    where
+        lower(trim(BOTH from m1_0.title)) like ? escape '!'
+            and m1_0.genre=?
+            and s1_0.start>?
+    order by
+        s1_0.start,
+        m1_0.release_date desc
+```
+
+### 실행 계획
+![0번 실행 계획](exp0.png)
+
+### 결과 스크린샷
+
 ### 부하 테스트 결과
 
-| 측정 항목 | 측정치      |   
-| --- |----------|
-| **총 요청 수** | 8330     |
-| **평균 요청 시간 (ms)** | 7230     |
-| **최소 요청 시간 (ms)** | 41.43    |
-| **최대 요청 시간 (ms)** | 17160    | 
-| **초당 요청 처리량** | 112.58/s |
-| **데이터 송신 속도** | 9.8kB/s  | 
-| **데이터 수신 속도** | 25MB/s   |
+| 측정 항목 | 측정치 |   
+| --- | --- |
+| **총 요청 수** | 19862 |
+| **평균 요청 시간 (ms)** | 5050 |
+| **최소 요청 시간 (ms)** | 111.87 |
+| **최대 요청 시간 (ms)** | 10800 | 
+| **초당 요청 처리량** | 66.02 |
+| **데이터 송신 속도** | 6.1 kB/s | 
+| **데이터 수신 속도** | 25 MB/s |
 ```
-✗ status is 200
- ↳  94% — ✓ 7831 / ✗ 499
-✗ response time < 200ms
- ↳  6% — ✓ 501 / ✗ 7829
+     ✗ status is 200
+      ↳  99% — ✓ 19762 / ✗ 100
+     ✗ response time < 200ms
+      ↳  3% — ✓ 625 / ✗ 19237
 ```
-
-- 처참한 실패

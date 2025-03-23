@@ -2,6 +2,8 @@ package com.pepponechoi.cinema.schedule.entity;
 
 
 import com.pepponechoi.cinema.BaseEntity;
+import com.pepponechoi.cinema.movie.entity.Movie;
+import com.pepponechoi.cinema.screen.entity.Screen;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +16,6 @@ import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import com.pepponechoi.cinema.movie.entity.Movie;
-import com.pepponechoi.cinema.screen.entity.Screen;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -52,9 +52,5 @@ public class Schedule extends BaseEntity {
 
     public static Schedule of(Screen screen, Movie movie, LocalDateTime start, LocalDateTime end, String createdBy) {
         return new Schedule(screen, movie, start, end, createdBy);
-    }
-
-    public void link() {
-        this.getMovie().getSchedules().add(this);
     }
 }
