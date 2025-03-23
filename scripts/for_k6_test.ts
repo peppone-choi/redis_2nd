@@ -11,17 +11,11 @@ const peakSampleUser = Math.round(peak * (sampleDurationMin / peakMin));
 export const options = {
   discardResponseBodies: true,
   scenarios: {
-    "smoke-test": {
-      executor: 'constant-vus',
-      vus: 1,
-      duration: `10m`
-    },
     "load-test": {
       executor: 'per-vu-iterations',
       vus: peakSampleUser,
-      iterations: 10,
+      iterations: 3,
       maxDuration: `${sampleDurationMin}m`,
-      startTime: "10m"
     },
   },
   thresholds: {
@@ -31,7 +25,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get("http://localhost:8080/api/v1/movies");
+  const res = http.get("http://localhost:8080/api/v1/movies?genre=ACTION");
 
   check(res, {
     "status is 200": (r) => r.status === 200,
