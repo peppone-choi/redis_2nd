@@ -1,37 +1,56 @@
 package com.pepponechoi.cinema.config;
 
-import com.github.benmanes.caffeine.cache.Caffeine;
-import com.pepponechoi.cinema.config.enums.CacheTypes;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.springframework.cache.CacheManager;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.caffeine.CaffeineCache;
-import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableCaching
 public class CacheConfig {
 
-    @Bean
-    public List<CaffeineCache> caffeineCaches() {
-        return Arrays.stream(CacheTypes.values())
-            .map(cache -> new CaffeineCache(
-                cache.getCacheName(), Caffeine.newBuilder().recordStats()
-                .expireAfterWrite(cache.getExpiredAfterWrite(), TimeUnit.HOURS)
-                .maximumSize(cache.getMaximumSize())
-                .build()))
-            .toList();
-    }
+    public static final String CACHE_1800_SECOND = "cache1800";
 
     @Bean
-    public CacheManager cacheManager(List<CaffeineCache> caches) {
-        SimpleCacheManager cacheManager = new SimpleCacheManager();
-        cacheManager.setCaches(caches);
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory, ResourceLoader resourceLoader) {
+        RedisCacheManager.RedisCacheManagerBuilder builder =
+            RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(redisConnectionFactory);
 
-        return cacheManager;
+        ObjectMapper objectMapper = new ObjectMapper()
+            .registerModule(new JavaTimeModule()) // LocalDateTime 지원
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS) // ISO-8601 포맷 사용
+            .activateDefaultTyping(
+                LaissezFaireSubTypeValidator.instance,
+                ObjectMapper.DefaultTyping.NON_FINAL, // 모든 비-기본 타입에 대해 타입 정보 활성화
+                JsonTypeInfo.As.PROPERTY // 타입 정보를 속성으로 포함
+            );
+
+        RedisCacheConfiguration defaultCacheConfiguration =
+            RedisCacheConfiguration.defaultCacheConfig(resourceLoader.getClassLoader())
+                .disableCachingNullValues()
+                .serializeValuesWith(SerializationPair.fromSerializer(new StringRedisSerializer()))
+                .serializeValuesWith(SerializationPair.fromSerializer(
+                    new GenericJackson2JsonRedisSerializer(objectMapper)
+                ))
+                .entryTtl(Duration.ofDays(1));
+        Map<String, RedisCacheConfiguration> cacheConfigurationMap = new HashMap<>();
+        cacheConfigurationMap.put(CACHE_1800_SECOND,
+            defaultCacheConfiguration.entryTtl(Duration.ofSeconds(180L)));
+        return builder.cacheDefaults(defaultCacheConfiguration)
+            .withInitialCacheConfigurations(cacheConfigurationMap).build();
     }
 }

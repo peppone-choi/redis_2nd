@@ -5,6 +5,7 @@ import com.pepponechoi.cinema.movie.dto.response.MovieResponse;
 import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.repository.MovieRepository;
 import java.util.List;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,21 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
 
     @Override
-    @Cacheable(cacheNames = "screeningCache", key = "#title + ':' + #genre")
-    public List<MovieResponse> findAllMoviesIsShowing(FindAllRequest request) {
+    @Cacheable(cacheNames = "CACHE_1800_SECOND", key = "#request.title() + ':' + #request.genre()")
+    public MovieResponses findAllMoviesIsShowing(FindAllRequest request) {
         List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
-        return movies.stream().map(MovieResponse::of).toList();
+        return new MovieResponses(movies.stream().map(MovieResponse::of).toList());
+    }
+
+    @Data
+    public static class MovieResponses {
+        private List<MovieResponse> movieResponses;
+        public MovieResponses() {
+
+        }
+        public MovieResponses(List<MovieResponse> movieResponses) {
+            this.movieResponses = movieResponses;
+        }
     }
 }
 

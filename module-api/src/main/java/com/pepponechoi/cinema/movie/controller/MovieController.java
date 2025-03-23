@@ -19,7 +19,7 @@ public class MovieController {
 
     @GetMapping
     public ResponseEntity<List<MovieResponse>> findAll(@ModelAttribute FindAllRequest request) {
-        List<MovieResponse> allMoviesIsShowing = service.findAllMoviesIsShowing(request);
+        List<MovieResponse> allMoviesIsShowing = service.findAllMoviesIsShowing(request).getMovieResponses();
         return ResponseEntity.ok(allMoviesIsShowing);
     }
 }
