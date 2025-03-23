@@ -2,12 +2,13 @@ package com.pepponechoi.cinema.movie.repository.querydsl;
 
 import static com.pepponechoi.cinema.movie.entity.QMovie.movie;
 import static com.pepponechoi.cinema.schedule.entity.QSchedule.schedule;
-import static com.pepponechoi.cinema.screen.entity.QScreen.screen;
 
 import com.pepponechoi.cinema.movie.dto.FindMovies;
 import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.enums.Genre;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.util.StringUtils;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,30 +23,29 @@ public class MovieQueryDslRepositoryImpl implements MovieQueryDslRepository {
         BooleanBuilder whereClause = new BooleanBuilder();
 
         LocalDateTime now = LocalDateTime.now();
-
         String title = findMovies.title();
-
-        if (title != null && !title.trim().isEmpty()) {
-            title = "%" + title.trim().toLowerCase() + "%";
-            whereClause.and(movie.title.trim().toLowerCase().like(title));
-        }
-
-        String genre = findMovies.genre();
-
-        if (genre != null) {
-            whereClause.and(movie.genre.eq(Genre.valueOf(genre)));
-        }
-
+        Genre genre = Genre.valueOf(findMovies.genre());
 
         return queryFactory
             .selectFrom(movie)
-            .where(whereClause)
-            .join(movie.schedules, schedule)
-            .where(schedule.start.after(now)).fetchJoin()
-            .join(schedule.screen, screen).fetchJoin()
-            .orderBy(
-                schedule.start.asc(),
-                movie.releaseDate.desc()
-            ).fetch();
+            .join(movie.schedules, schedule).fetchJoin()
+            .leftJoin(schedule.screen).fetchJoin()
+            .where(eqTitle(title), eqGenre(genre), schedule.start.after(now))
+            .orderBy(schedule.start.asc(), movie.releaseDate.desc())
+            .fetch();
+    }
+
+    private BooleanExpression eqTitle(String title) {
+        if (StringUtils.isNullOrEmpty(title) || title.trim().isEmpty()) {
+            return null;
+        }
+        return movie.title.eq(title.trim().toLowerCase());
+    }
+
+    private BooleanExpression eqGenre(Genre genre) {
+        if (genre == null) {
+            return null;
+        }
+        return movie.genre.eq(genre);
     }
 }
