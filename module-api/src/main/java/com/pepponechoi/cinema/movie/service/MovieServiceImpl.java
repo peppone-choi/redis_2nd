@@ -6,6 +6,7 @@ import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.repository.MovieRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
 
     @Override
+    @Cacheable(cacheNames = "screeningCache", key = "#title + ':' + #genre")
     public List<MovieResponse> findAllMoviesIsShowing(FindAllRequest request) {
         List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
         return movies.stream().map(MovieResponse::of).toList();

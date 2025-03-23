@@ -213,7 +213,7 @@ select
 ![img.png](exp1.png)
 
 ### 결과 스크린샷
-
+![img_1.png](img_1.png)
 ### 부하 테스트 결과
 
 | 측정 항목 | 측정치   | 증감수치 |
@@ -233,3 +233,40 @@ select
 
 - 이전과는 비교 되지 않을 현저한 성과!
 - 이래서 인덱스 인덱스 하는것임을 알게 되었음.
+
+## 2 - 로컬 캐시 적용 후
+
+### 캐싱 데이터 종류
+ - 조인을 포함한 상영 정보에 필요한 전체 결과 캐싱
+```java
+@Override
+    @Cacheable(cacheNames = "screeningCache", key = "#title + ':' + #genre")
+    public List<MovieResponse> findAllMoviesIsShowing(FindAllRequest request) {
+        List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
+        return movies.stream().map(MovieResponse::of).toList();
+    }
+```
+### 실행 계획
+ - 이전과 동일
+
+### 결과 스크린샷
+![img.png](img.png)
+### 부하 테스트 결과
+
+| 측정 항목 | 측정치        | 증감수치         |
+| --- |------------|--------------|
+| **총 요청 수** | 117581     | +2.8%        |
+| **평균 요청 시간 (ms)** | 1.22       | -98.9%       |
+| **최소 요청 시간 (ms)** | 0          | N/A          |
+| **최대 요청 시간 (ms)** | 485.75     | +129% (????) | 
+| **초당 요청 처리량** | 391.4req/s | +2.7%        |
+| **데이터 송신 속도** | 55 kB/s    | +3.8%        |
+| **데이터 수신 속도** | 5.5 MB/s   | +3.8%        |
+```
+      ✓ status is 200
+     ✗ response time < 200ms
+      ↳  99% — ✓ 114363 / ✗ 1
+```
+
+- 미미한 변화였지만, 평균 요청시간에서 굉장한 발전을 보임.
+- 아마 캐시에 담아두고 그 캐시를 가져다 쓰니 그런것 아닐까 추정중.
