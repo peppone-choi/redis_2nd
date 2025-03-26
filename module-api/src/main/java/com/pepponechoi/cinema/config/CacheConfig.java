@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.cache.annotation.EnableCaching;
@@ -23,7 +24,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableCaching
 public class CacheConfig {
 
-    public static final String CACHE_1800_SECOND = "cache1800";
+    public static final String CACHE_NEXT_DAY = "cachenextday";
 
     @Bean
     public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory, ResourceLoader resourceLoader) {
@@ -48,9 +49,15 @@ public class CacheConfig {
                 ))
                 .entryTtl(Duration.ofDays(1));
         Map<String, RedisCacheConfiguration> cacheConfigurationMap = new HashMap<>();
-        cacheConfigurationMap.put(CACHE_1800_SECOND,
-            defaultCacheConfiguration.entryTtl(Duration.ofSeconds(180L)));
+        cacheConfigurationMap.put(CACHE_NEXT_DAY,
+            defaultCacheConfiguration.entryTtl(getDurationUntilMidnight()));
         return builder.cacheDefaults(defaultCacheConfiguration)
             .withInitialCacheConfigurations(cacheConfigurationMap).build();
+    }
+
+    private Duration getDurationUntilMidnight() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime midnight = now.plusDays(1).withHour(0).withMinute(0).withSecond(0);
+        return Duration.between(midnight, now);
     }
 }
