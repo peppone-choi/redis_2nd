@@ -19,8 +19,8 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
 
     @Override
-    @Cacheable(cacheNames = "CACHE_1800_SECOND", key = "#request.title() + ':' + #request.genre()")
-    public MovieResponses findAllMoviesIsShowing(FindAllRequest request) {
+    @Cacheable(cacheNames = "cachenextday", key = "#request.title() + ':' + #request.genre()")
+    public MovieResponses allShowingMovies(FindAllRequest request) {
         List<Movie> movies = movieRepository.findAllWithSchedule(request.toFinds());
         return new MovieResponses(movies.stream().map(MovieResponse::of).toList());
     }
