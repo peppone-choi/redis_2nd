@@ -25,9 +25,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "movies", indexes = {
-    @Index(name = "idx_movies_title_genre", columnList = "title, genre"),
-    @Index(name = "idx_movies_genre", columnList = "genre"),
+    @Index(name = "idx_movies_title_genre_release_date", columnList = "title, genre, release_date"),
     @Index(name = "idx_movies_title", columnList = "title"),
+    @Index(name = "idx_movies_genre", columnList = "genre"),
+    @Index(name = "idx_movies_release_date", columnList = "release_date"),
 })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter

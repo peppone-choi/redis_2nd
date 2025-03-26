@@ -22,8 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "schedules", indexes = {
-    @Index(name = "idx_schedules_start", columnList = "start"),
-    @Index(name = "idx_schedules_movie_start", columnList = "movie_id, start")
+    @Index(name = "idx_schedules_movie_start", columnList = "movie_id, start"),
+    @Index(name = "idx_schedules_start", columnList = "start")
 })
 public class Schedule extends BaseEntity {
     @Id
