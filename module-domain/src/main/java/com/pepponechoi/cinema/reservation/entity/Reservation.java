@@ -2,6 +2,7 @@ package com.pepponechoi.cinema.reservation.entity;
 
 
 import com.pepponechoi.cinema.BaseEntity;
+import com.pepponechoi.cinema.user.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +26,10 @@ public class Reservation extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reservation_id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "seat_id")
