@@ -5,11 +5,12 @@ import com.pepponechoi.cinema.schedule.entity.Schedule;
 import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.user.entity.User;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record ReservationResponse(
     Long id,
     NestedScheduleResponse schedule,
-    NestedSeatResponse seat,
+    List<NestedSeatResponse> seats,
     NestedUserResponse user
 ) {
 
@@ -17,7 +18,7 @@ public record ReservationResponse(
         return new ReservationResponse(
             reservation.getId(),
             NestedScheduleResponse.of(reservation.getSchedule()),
-            NestedSeatResponse.of(reservation.getSeat()),
+                reservation.getSeat().stream().map(NestedSeatResponse::of).toList(),
                 NestedUserResponse.of(reservation.getUser())
         );
     }

@@ -14,6 +14,8 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,20 +50,16 @@ public class ReservationServiceImpl implements ReservationService {
                 }
         );
 
-        Seat seat = seatRepository.findByScreenIdAndRowNoAndColumnNoAndIsReservedIsFalse(
-                schedule.getScreen().getId(),
-                request.seatRowNo(),
-                request.columNo()
-        ).orElseThrow(
+        List<Seat> seats = request.seats().stream().map(seat -> seatRepository.findByScreenIdAndRowNoAndColumnNoAndIsReservedIsFalse(schedule.getScreen().getId(), seat.rowNo(), seat.columnNo()).orElseThrow(
                 () -> {
                     ConflictException exception = new ConflictException();
                     exception.setErrorCode(ConfliectErrorCode.CONFLICT);
-                    exception.setDetail("이미 예약된 좌석이거나 좌석이 존재하지 않습니다.");
-                    return exception;
+                    exception.setDetail("해당하는 좌석이 없거나 이미 예약되어 있는 좌석입니다.");
+                    throw exception;
                 }
-        );
+        )).toList();
 
-        Reservation reservation = Reservation.of(user, seat, schedule, String.valueOf(user.getId()));
+        Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 
         reservationRepository.save(reservation);
 
