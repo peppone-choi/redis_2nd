@@ -48,7 +48,8 @@ public class ReservationServiceImpl implements ReservationService {
                 }
         );
 
-        Seat seat = seatRepository.findByRowNoAndColumnNoAndIsReservedIsFalse(
+        Seat seat = seatRepository.findByScreenIdAndRowNoAndColumnNoAndIsReservedIsFalse(
+                schedule.getScreen().getId(),
                 request.seatRowNo(),
                 request.columNo()
         ).orElseThrow(

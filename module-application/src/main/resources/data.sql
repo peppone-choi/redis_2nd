@@ -1690,2179 +1690,527 @@ INSERT INTO screens (name, created_at, updated_at, created_by, updated_by) VALUE
 
 
 
--- 좌석 데이터 추가
+-- 좌석 데이터 추가 (모든 상영관은 5x5 규격)
 
--- 상영관 1의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 15, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 15, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 15, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 15, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 15, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 10, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 11, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 12, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 13, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 14, 1, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 15, 1, NOW(), NOW(), 'system', 'system');
+-- 상영관 1의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 1, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 1, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 2의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 19, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 1, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 2, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 3, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 4, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 5, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 6, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 7, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 8, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 9, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 10, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 11, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 12, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 13, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 14, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 15, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 16, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 17, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 18, 2, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 19, 2, NOW(), NOW(), 'system', 'system');
+-- 상영관 2의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 2, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 2, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 3의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 11, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 7, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 8, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 9, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 10, 3, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 11, 3, NOW(), NOW(), 'system', 'system');
+-- 상영관 3의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 3, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 3, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 4의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 13, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 14, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 15, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 16, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 13, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 14, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 15, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 16, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 13, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 14, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 15, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 16, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 13, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 14, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 15, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 16, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 13, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 14, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 15, 4, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 16, 4, NOW(), NOW(), 'system', 'system');
+-- 상영관 4의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 4, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 4, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 5의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 8, 5, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 9, 5, NOW(), NOW(), 'system', 'system');
+-- 상영관 5의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 5, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 5, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 6의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 17, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 7, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 8, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 9, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 10, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 11, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 12, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 13, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 14, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 15, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 16, 6, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 17, 6, NOW(), NOW(), 'system', 'system');
+-- 상영관 6의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 6, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 6, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 7의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 20, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 7, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 8, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 9, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 10, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 11, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 12, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 13, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 14, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 15, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 16, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 17, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 18, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 19, 7, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 20, 7, NOW(), NOW(), 'system', 'system');
+-- 상영관 7의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 7, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 7, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 8의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 6, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 1, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 2, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 3, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 4, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 5, 8, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 6, 8, NOW(), NOW(), 'system', 'system');
+-- 상영관 8의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 8, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 8, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 9의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 8, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 9, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 10, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 11, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 12, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 8, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 9, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 10, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 11, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 12, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 8, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 9, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 10, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 11, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 12, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 8, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 9, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 10, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 11, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 12, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 8, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 9, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 10, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 11, 9, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 12, 9, NOW(), NOW(), 'system', 'system');
+-- 상영관 9의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 9, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 9, 0, NOW(), NOW(), 'system', 'system');
 
--- 상영관 10의 좌석
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('A', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('B', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('C', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('D', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('E', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('F', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('G', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('H', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('I', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('J', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('K', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('L', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('M', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('N', 7, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 1, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 2, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 3, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 4, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 5, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 6, 10, NOW(), NOW(), 'system', 'system');
-INSERT INTO seats (row_no, column_no, screen_id, created_at, updated_at, created_by, updated_by) VALUES
-    ('O', 7, 10, NOW(), NOW(), 'system', 'system');
+-- 상영관 10의 좌석 (5x5)
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 1, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 2, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 3, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 4, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('A', 5, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 1, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 2, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 3, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 4, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('B', 5, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 1, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 2, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 3, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 4, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('C', 5, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 1, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 2, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 3, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 4, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('D', 5, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 1, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 2, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 3, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 4, 10, 0, NOW(), NOW(), 'system', 'system');
+INSERT INTO seats (row_no, column_no, screen_id, is_reserved, created_at, updated_at, created_by, updated_by) VALUES
+    ('E', 5, 10, 0, NOW(), NOW(), 'system', 'system');
 
 
 
