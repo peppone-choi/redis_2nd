@@ -20,7 +20,6 @@ import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "reservations")
@@ -36,8 +35,7 @@ public class Reservation extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "reservation")
-    @Setter
+    @OneToMany
     private List<Seat> seat = new ArrayList<>();
 
     @ManyToOne

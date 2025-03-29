@@ -14,7 +14,6 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -58,6 +57,10 @@ public class ReservationServiceImpl implements ReservationService {
                     throw exception;
                 }
         )).toList();
+
+        // TODO : Seat Valid
+        // 1. 각 Seat의 최대 갯수가 5개인지
+        // 2. 각 Seat가 연속되어있는지
 
         Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 
