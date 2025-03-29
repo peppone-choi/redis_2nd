@@ -40,13 +40,23 @@ public class Reservation extends BaseEntity {
     private Schedule schedule;
 
     protected Reservation(User user, Seat seat, Schedule schedule, String createdBy) {
-        this.user = user;
-        this.seat = seat;
+        setUser(user);
+        setSeat(seat);
         this.schedule = schedule;
         this.setCreatedBy(createdBy);
     }
 
     public static Reservation of(User user, Seat seat, Schedule schedule, String createdBy) {
         return new Reservation(user, seat, schedule, createdBy);
+    }
+
+    private void setUser(User user) {
+        this.user = user;
+        user.addReservation(this);
+    }
+
+    private void setSeat(Seat seat) {
+        this.seat = seat;
+        seat.setIsReserved(true);
     }
 }
