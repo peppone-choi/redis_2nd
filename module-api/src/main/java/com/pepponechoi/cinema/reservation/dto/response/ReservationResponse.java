@@ -3,20 +3,33 @@ package com.pepponechoi.cinema.reservation.dto.response;
 import com.pepponechoi.cinema.reservation.entity.Reservation;
 import com.pepponechoi.cinema.schedule.entity.Schedule;
 import com.pepponechoi.cinema.seat.entity.Seat;
+import com.pepponechoi.cinema.user.entity.User;
 import java.time.LocalDateTime;
 
 public record ReservationResponse(
     Long id,
     NestedScheduleResponse schedule,
-    NestedSeatResponse seat
+    NestedSeatResponse seat,
+    NestedUserResponse user
 ) {
 
     public static ReservationResponse of(Reservation reservation) {
         return new ReservationResponse(
             reservation.getId(),
             NestedScheduleResponse.of(reservation.getSchedule()),
-            NestedSeatResponse.of(reservation.getSeat())
+            NestedSeatResponse.of(reservation.getSeat()),
+                NestedUserResponse.of(reservation.getUser())
         );
+    }
+
+    public record NestedUserResponse(Long id, String email, String nickname) {
+        public static NestedUserResponse of(User user) {
+            return new NestedUserResponse(
+                    user.getId(),
+                    user.getEmail(),
+                    user.getNickname()
+            );
+        }
     }
 
     public record NestedScheduleResponse(

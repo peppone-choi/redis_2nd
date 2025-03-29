@@ -37,6 +37,10 @@ public class Seat extends BaseEntity {
     @Setter
     private Screen screen;
 
+    @Column(nullable = false)
+    @Setter
+    private Boolean isReserved = false;
+
     protected Seat(Character rowNo, Integer columnNo, Screen screen, String createdBy) {
         this.rowNo = rowNo;
         this.columnNo = columnNo;

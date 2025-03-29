@@ -39,14 +39,14 @@ public class Reservation extends BaseEntity {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    protected Reservation(Long id, Seat seat, Schedule schedule, String createdBy) {
-        this.id = id;
+    protected Reservation(User user, Seat seat, Schedule schedule, String createdBy) {
+        this.user = user;
         this.seat = seat;
         this.schedule = schedule;
         this.setCreatedBy(createdBy);
     }
 
-    public static Reservation of(Seat seat, Schedule schedule, String createdBy) {
-        return new Reservation(null, seat, schedule, createdBy);
+    public static Reservation of(User user, Seat seat, Schedule schedule, String createdBy) {
+        return new Reservation(user, seat, schedule, createdBy);
     }
 }

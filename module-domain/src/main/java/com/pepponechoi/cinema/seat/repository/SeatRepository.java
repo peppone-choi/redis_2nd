@@ -8,6 +8,10 @@ import java.util.Optional;
 public interface SeatRepository {
     Seat save(Seat seat);
 
+    Optional<Seat> findByRowNoAndColumnNo(Character rowNo, Integer columnNo);
+
+    Optional<Seat> findByRowNoAndColumnNoAndIsReservedIsFalse(Character rowNo, Integer columnNo);
+
     Optional<Seat> findById(Long id);
     List<Seat> findAll();
 

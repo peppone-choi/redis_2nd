@@ -6,10 +6,11 @@ public record SeatResponse(
     Long id,
     Character row,
     Integer column,
-    NestedScreenResponse screen
+    NestedScreenResponse screen,
+    Boolean isReserved
 ) {
     public static SeatResponse of(final Seat seat) {
-        return new SeatResponse(seat.getId(), seat.getRowNo(), seat.getColumnNo(), NestedScreenResponse.of(seat.getScreen()));
+        return new SeatResponse(seat.getId(), seat.getRowNo(), seat.getColumnNo(), NestedScreenResponse.of(seat.getScreen()), seat.getIsReserved());
     }
 
     private record NestedScreenResponse(
