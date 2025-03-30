@@ -13,8 +13,12 @@ Content-Type: application/json
       "columnNo": 1
     },
     {
-      "rowNo": "B",
-      "columnNo": 1
+      "rowNo": "A",
+      "columnNo": 2
+    },
+    {
+      "rowNo": "A",
+      "columnNo": 3
     }
   ],
   "scheduleId": 1

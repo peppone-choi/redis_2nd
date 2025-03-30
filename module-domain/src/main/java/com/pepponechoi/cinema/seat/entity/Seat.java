@@ -2,6 +2,7 @@ package com.pepponechoi.cinema.seat.entity;
 
 
 import com.pepponechoi.cinema.BaseEntity;
+import com.pepponechoi.cinema.reservation.entity.Reservation;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,9 +38,10 @@ public class Seat extends BaseEntity {
     @Setter
     private Screen screen;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "reservation_id")
     @Setter
-    private Boolean isReserved = false;
+    private Reservation reservation = null;
 
     protected Seat(Character rowNo, Integer columnNo, Screen screen, String createdBy) {
         this.rowNo = rowNo;

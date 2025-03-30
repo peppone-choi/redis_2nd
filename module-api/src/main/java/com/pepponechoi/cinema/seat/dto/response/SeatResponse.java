@@ -10,7 +10,10 @@ public record SeatResponse(
     Boolean isReserved
 ) {
     public static SeatResponse of(final Seat seat) {
-        return new SeatResponse(seat.getId(), seat.getRowNo(), seat.getColumnNo(), NestedScreenResponse.of(seat.getScreen()), seat.getIsReserved());
+
+        Boolean getReserved = seat.getReservation() != null;
+        return new SeatResponse(seat.getId(), seat.getRowNo(), seat.getColumnNo(),
+            NestedScreenResponse.of(seat.getScreen()), getReserved);
     }
 
     private record NestedScreenResponse(

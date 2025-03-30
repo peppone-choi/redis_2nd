@@ -5,6 +5,7 @@ import com.pepponechoi.cinema.BaseEntity;
 import com.pepponechoi.cinema.schedule.entity.Schedule;
 import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.user.entity.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,8 +36,8 @@ public class Reservation extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany
-    private List<Seat> seat = new ArrayList<>();
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    private List<Seat> seats = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "schedule_id")
@@ -60,14 +61,14 @@ public class Reservation extends BaseEntity {
 
     private void setSeat(Collection<Seat> seats) {
         clearSeat();
-        this.seat = seats.stream().toList();
-        seats.forEach(s -> s.setIsReserved(true));
+        this.seats.addAll(seats);
+        seats.forEach(s -> s.setReservation(this));
     }
 
     public void clearSeat() {
-        if (!this.seat.isEmpty()) {
-            this.seat.forEach(s -> s.setIsReserved(false));
-            this.seat.clear();
+        if (!this.seats.isEmpty()) {
+            this.seats.forEach(s -> s.setReservation(null));
+            this.seats.clear();
         }
     }
 }

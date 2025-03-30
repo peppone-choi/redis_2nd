@@ -56,7 +56,20 @@ public class ReservationServiceImpl implements ReservationService {
                 }
         );
 
-        List<Seat> seats = request.seats().stream().map(seat -> seatRepository.findByScreenIdAndRowNoAndColumnNoAndIsReservedIsFalse(schedule.getScreen().getId(), seat.rowNo(), seat.columnNo()).orElseThrow(
+        Integer userReservedSeats =
+            seatRepository.countByReservation_UserIdAndReservation_ScheduleId(user.getId(),
+            schedule.getId());
+
+        System.out.println("userReservedSeats = " + userReservedSeats);
+
+        if (userReservedSeats + request.seats().size() > 5) {
+            ConflictException exception = new ConflictException();
+            exception.setErrorCode(ConfliectErrorCode.CONFLICT);
+            exception.setDetail("각 유저의 좌석은 스케쥴 당 5개를 넘지 못합니다.");
+            throw exception;
+        }
+
+        List<Seat> seats = request.seats().stream().map(seat -> seatRepository.findByScreenIdAndRowNoAndColumnNoAndReservationIsNull(schedule.getScreen().getId(), seat.rowNo(), seat.columnNo()).orElseThrow(
                 () -> {
                     ConflictException exception = new ConflictException();
                     exception.setErrorCode(ConfliectErrorCode.CONFLICT);
@@ -73,6 +86,7 @@ public class ReservationServiceImpl implements ReservationService {
             exception.setDetail("좌석은 0석 이상 5석 이하로 선택 하여야 합니다.");
             throw exception;
         }
+
         // Seat의 크기가 2이상이면 Valid
         if (seats.size() >= 2) {
             Map<Character, Set<Integer>> setMap = new HashMap<>();
@@ -96,7 +110,7 @@ public class ReservationServiceImpl implements ReservationService {
                     exception.setDetail("두석 이상 선택하신 경우 따로 1석만 선택하는 것은 불가능 합니다.");
                     throw exception;
                 }
-                if (!IntStream.range(2, seatRowNos.size())
+                if (!IntStream.range(1, seatRowNos.size())
                     .allMatch(index -> seatRowNos.get(index) - seatRowNos.get(index - 1) == 1)
                 ) {
                     BadRequestException exception = new BadRequestException();

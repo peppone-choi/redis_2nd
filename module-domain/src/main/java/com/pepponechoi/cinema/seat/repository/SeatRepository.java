@@ -10,8 +10,10 @@ public interface SeatRepository {
 
     Optional<Seat> findByScreenIdAndRowNoAndColumnNo(Long screenId, Character rowNo, Integer columnNo);
 
-    Optional<Seat> findByScreenIdAndRowNoAndColumnNoAndIsReservedIsFalse(Long screenId, Character rowNo, Integer columnNo);
-
+    Optional<Seat> findByScreenIdAndRowNoAndColumnNoAndReservationIsNull(Long screenId,
+        Character rowNo,
+        Integer columnNo);
+    Integer countByReservation_UserIdAndReservation_ScheduleId(Long userId, Long scheduleId);
     Optional<Seat> findById(Long id);
     List<Seat> findAll();
 
