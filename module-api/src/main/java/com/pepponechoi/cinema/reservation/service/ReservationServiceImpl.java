@@ -1,7 +1,9 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.pepponechoi.cinema.exception.enums.BadRequestErrorCode;
 import com.pepponechoi.cinema.exception.enums.ConfliectErrorCode;
 import com.pepponechoi.cinema.exception.enums.NotFoundErrorCode;
+import com.pepponechoi.cinema.exception.exception.BadRequestException;
 import com.pepponechoi.cinema.exception.exception.ConflictException;
 import com.pepponechoi.cinema.exception.exception.NotFoundException;
 import com.pepponechoi.cinema.reservation.dto.request.create.CreateReservationRequest;
@@ -14,7 +16,12 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,8 +66,47 @@ public class ReservationServiceImpl implements ReservationService {
         )).toList();
 
         // TODO : Seat Valid
-        // 1. 각 Seat의 최대 갯수가 5개인지
-        // 2. 각 Seat가 연속되어있는지
+        // 1. 각 Seat의 최대 갯수가 5개이하인지
+        if (seats.isEmpty() || seats.size() > 5) {
+            BadRequestException exception = new BadRequestException();
+            exception.setErrorCode(BadRequestErrorCode.VALIDATION_FAILED);
+            exception.setDetail("좌석은 0석 이상 5석 이하로 선택 하여야 합니다.");
+            throw exception;
+        }
+        // Seat의 크기가 2이상이면 Valid
+        if (seats.size() >= 2) {
+            Map<Character, Set<Integer>> setMap = new HashMap<>();
+
+            seats.forEach(seat -> {
+                setMap.computeIfAbsent(seat.getRowNo(), k -> new HashSet<>());
+                if (setMap.get(seat.getRowNo()).contains(seat.getColumnNo())) {
+                    ConflictException exception = new ConflictException();
+                    exception.setErrorCode(ConfliectErrorCode.CONFLICT);
+                    exception.setDetail("좌석은 중복될 수 없습니다.");
+                    throw exception;
+                }
+                setMap.get(seat.getRowNo()).add(seat.getColumnNo());
+            });
+
+            setMap.forEach((rowNo, columnNoSet) -> {
+                List<Integer> seatRowNos = columnNoSet.stream().sorted().toList();
+                if (seatRowNos.size() == 1) {
+                    BadRequestException exception = new BadRequestException();
+                    exception.setErrorCode(BadRequestErrorCode.VALIDATION_FAILED);
+                    exception.setDetail("두석 이상 선택하신 경우 따로 1석만 선택하는 것은 불가능 합니다.");
+                    throw exception;
+                }
+                if (!IntStream.range(2, seatRowNos.size())
+                    .allMatch(index -> seatRowNos.get(index) - seatRowNos.get(index - 1) == 1)
+                ) {
+                    BadRequestException exception = new BadRequestException();
+                    exception.setErrorCode(BadRequestErrorCode.VALIDATION_FAILED);
+                    exception.setDetail("좌석은 이어져 있어야 합니다.");
+                    throw exception;
+                }
+            });
+        }
+
 
         Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 

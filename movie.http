@@ -11,6 +11,10 @@ Content-Type: application/json
     {
       "rowNo": "A",
       "columnNo": 1
+    },
+    {
+      "rowNo": "B",
+      "columnNo": 1
     }
   ],
   "scheduleId": 1
