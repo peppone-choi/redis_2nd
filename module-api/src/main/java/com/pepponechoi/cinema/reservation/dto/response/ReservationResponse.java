@@ -18,7 +18,7 @@ public record ReservationResponse(
         return new ReservationResponse(
             reservation.getId(),
             NestedScheduleResponse.of(reservation.getSchedule()),
-                reservation.getSeat().stream().map(NestedSeatResponse::of).toList(),
+                reservation.getSeats().stream().map(NestedSeatResponse::of).toList(),
                 NestedUserResponse.of(reservation.getUser())
         );
     }
