@@ -78,7 +78,6 @@ public class ReservationServiceImpl implements ReservationService {
                 }
         )).toList();
 
-        // TODO : Seat Valid
         // 1. 각 Seat의 최대 갯수가 5개이하인지
         if (seats.isEmpty() || seats.size() > 5) {
             BadRequestException exception = new BadRequestException();
@@ -102,14 +101,16 @@ public class ReservationServiceImpl implements ReservationService {
                 setMap.get(seat.getRowNo()).add(seat.getColumnNo());
             });
 
+            if (setMap.size() >= 2) {
+                BadRequestException exception = new BadRequestException();
+                exception.setErrorCode(BadRequestErrorCode.VALIDATION_FAILED);
+                exception.setDetail("2개 이상의 좌석은 같은 행에 있어야 합니다.");
+                throw exception;
+            }
+
             setMap.forEach((rowNo, columnNoSet) -> {
                 List<Integer> seatRowNos = columnNoSet.stream().sorted().toList();
-                if (seatRowNos.size() == 1) {
-                    BadRequestException exception = new BadRequestException();
-                    exception.setErrorCode(BadRequestErrorCode.VALIDATION_FAILED);
-                    exception.setDetail("두석 이상 선택하신 경우 따로 1석만 선택하는 것은 불가능 합니다.");
-                    throw exception;
-                }
+
                 if (!IntStream.range(1, seatRowNos.size())
                     .allMatch(index -> seatRowNos.get(index) - seatRowNos.get(index - 1) == 1)
                 ) {
