@@ -17,7 +17,7 @@ public abstract class BaseEntity {
 
     @Setter
     @Column(updatable = false, nullable = false)
-    private String createdBy;
+    private String createdBy = "system";
 
     @CreatedDate
     @Column(updatable = false)
@@ -25,7 +25,7 @@ public abstract class BaseEntity {
 
     @Setter
     @Column
-    private String updatedBy;
+    private String updatedBy = "system";
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
