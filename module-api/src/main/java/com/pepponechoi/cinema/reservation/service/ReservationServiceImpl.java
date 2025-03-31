@@ -1,6 +1,5 @@
 package com.pepponechoi.cinema.reservation.service;
 
-import com.pepponechoi.cinema.annotation.DistributedLock;
 import com.pepponechoi.cinema.event.EventPublisher;
 import com.pepponechoi.cinema.event.ReservationCompletedEvent;
 import com.pepponechoi.cinema.exception.enums.BadRequestErrorCode;
@@ -19,15 +18,17 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
-import jakarta.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
-import org.springframework.orm.ObjectOptimisticLockingFailureException;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,12 +42,10 @@ public class ReservationServiceImpl implements ReservationService {
     private final SeatRepository seatRepository;
     private final ScheduleRepository scheduleRepository;
     private final EventPublisher eventPublisher;
-
-    private final EntityManager entityManager;
+    private final RedissonClient redisson;
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    @DistributedLock(key = "#key", waitTime = 1, leaseTime = 2)
     public ReservationResponse create(CreateReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(
                 () -> {
@@ -132,14 +131,25 @@ public class ReservationServiceImpl implements ReservationService {
             });
         }
 
-
         Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 
+        List<RLock> locks = new ArrayList<>();
 
         try {
-            reservationRepository.save(reservation);
+            for (var seat : request.seats()) {
+                String seatLockKey =
+                    "seatLock:" + request.scheduleId() + ":" + seat.rowNo() + ":" + seat.columnNo();
+                RLock seatLock = redisson.getLock(seatLockKey);
 
-            entityManager.flush();
+                if (!seatLock.tryLock(2, 1, TimeUnit.SECONDS)) {
+                    ConflictException exception = new ConflictException();
+                    exception.setDetail("좌석 예약 중 충돌이 발생했습니다. 다시 시도해 주세요.");
+                    throw exception;
+                }
+                locks.add(seatLock); // Save acquired locks
+            }
+
+            reservationRepository.save(reservation);
 
             seats.forEach(seat -> {
                 seat.setReservation(reservation);
@@ -149,11 +159,11 @@ public class ReservationServiceImpl implements ReservationService {
                 reservation.getId(),
                 reservation.getUser().getId()
             ));
-        } catch (ObjectOptimisticLockingFailureException exception) {
-            System.out.println(exception.getMessage());
-            throw exception;
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            ConflictException exception = new ConflictException();
+            exception.setDetail("록 획득 중 인터럽트 되었습니다.");
         }
-
 
         return ReservationResponse.of(reservation);
     }
