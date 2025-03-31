@@ -1,5 +1,6 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.pepponechoi.cinema.annotation.DistributedLock;
 import com.pepponechoi.cinema.event.EventPublisher;
 import com.pepponechoi.cinema.event.ReservationCompletedEvent;
 import com.pepponechoi.cinema.exception.enums.BadRequestErrorCode;
@@ -45,6 +46,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
+    @DistributedLock(key = "#key", waitTime = 1, leaseTime = 2)
     public ReservationResponse create(CreateReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(
                 () -> {

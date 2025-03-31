@@ -128,7 +128,13 @@ project(":module-core") {
 	dependencies {
 		implementation project(":module-common")
 		implementation project(":module-domain")
+		implementation 'org.springframework.boot:spring-boot-starter-cache'
+		implementation 'org.springframework.boot:spring-boot-starter-aop'
 		implementation("org.springframework.boot:spring-boot-starter")
+		implementation 'org.redisson:redisson-spring-boot-starter:3.23.2'
+		// JSON 직렬화 및 역직렬화 관련 Jackson 라이브러리
+		implementation 'com.fasterxml.jackson.core:jackson-databind'
+		implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 	}
 }
 
@@ -140,13 +146,8 @@ project(":module-api") {
 		implementation project(":module-common")
 		implementation project(":module-core")
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-		implementation 'org.springframework.boot:spring-boot-starter-cache'
 		implementation 'com.github.ben-manes.caffeine:caffeine'
 		implementation 'org.redisson:redisson-spring-boot-starter:3.23.2'
-
-		// JSON 직렬화 및 역직렬화 관련 Jackson 라이브러리
-		implementation 'com.fasterxml.jackson.core:jackson-databind'
-		implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 	}
 }
 

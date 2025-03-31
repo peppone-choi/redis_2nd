@@ -29,7 +29,6 @@ public class RedisConfig {
     public RedissonClient redissonClient() {
         RedissonClient redissonClient = null;
         Config config = new Config();
-
         config.useSingleServer().setAddress(REDISSON_HOST_PRREFIX + REDIS_HOST + ":" + REDIS_PORT);
         redissonClient = Redisson.create(config);
         return redissonClient;

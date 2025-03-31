@@ -3,6 +3,7 @@ package com.pepponechoi.cinema.seat.entity;
 
 import com.pepponechoi.cinema.BaseEntity;
 import com.pepponechoi.cinema.reservation.entity.Reservation;
+import com.pepponechoi.cinema.screen.entity.Screen;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,12 +12,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.pepponechoi.cinema.screen.entity.Screen;
 
 @Table(name = "seats")
 @Entity
@@ -33,9 +32,6 @@ public class Seat extends BaseEntity {
 
     @Column
     private Integer columnNo;
-
-    @Version
-    private Long version;
 
     @ManyToOne
     @JoinColumn(name = "screen_id")
