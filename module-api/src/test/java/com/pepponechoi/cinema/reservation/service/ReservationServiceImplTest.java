@@ -1,5 +1,9 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.pepponechoi.cinema.movie.entity.Movie;
+import com.pepponechoi.cinema.movie.enums.Genre;
+import com.pepponechoi.cinema.movie.enums.Rating;
+import com.pepponechoi.cinema.movie.repository.MovieRepository;
 import com.pepponechoi.cinema.reservation.dto.request.create.CreateReservationRequest;
 import com.pepponechoi.cinema.reservation.dto.request.create.CreateReservationRequest.NestedSeat;
 import com.pepponechoi.cinema.reservation.entity.Reservation;
@@ -12,7 +16,9 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -50,6 +56,9 @@ public class ReservationServiceImplTest {
     private SeatRepository seatRepository;
 
     @Autowired
+    private MovieRepository movieRepository;
+
+    @Autowired
     private PlatformTransactionManager transactionManager;
 
     @Test
@@ -71,14 +80,18 @@ public class ReservationServiceImplTest {
             userRepository.save(user2);
 
             // 스크린 생성
-            Screen screen = Screen.of(1L, "1관", "pepponechoi");
+            Screen screen = Screen.of( "1관", "pepponechoi");
             screenRepository.save(screen);
 
+            Movie movie = Movie.of("test", Rating.R_15, LocalDate.now(), Genre.ACTION, "a", 90,
+                "pepponechoi", new ArrayList<>());
+
             // 상영 일정 생성
-            Schedule schedule = Schedule.of(screen, null, LocalDateTime.now(),
+            Schedule schedule = Schedule.of(screen, movie, LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(90), "pepponechoi");
             scheduleRepository.save(schedule);
-
+            movie.getSchedules().add(schedule);
+            movieRepository.save(movie);
             // 좌석 생성
             Seat seatA1 = Seat.of('A', 1, screen, "pepponechoi");
             seatRepository.save(seatA1);

@@ -69,7 +69,9 @@ public class Movie extends BaseEntity {
         this.genre = genre;
         this.thumbnail = thumbnail;
         this.runningTimeMin = runningTimeMin;
-        this.schedules = schedules.stream().toList();
+        if (schedules != null) {
+            this.schedules.addAll(schedules);
+        }
         this.setCreatedBy(createdBy);
     }
 

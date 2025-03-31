@@ -24,13 +24,12 @@ public class Screen extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
-    protected Screen(Long id, String name, String createdBy) {
-        this.id = id;
+    protected Screen(String name, String createdBy) {
         this.name = name;
         this.setCreatedBy(createdBy);
     }
 
-    public static Screen of(Long id, String name, String createdBy) {
-        return new Screen(id, name, createdBy);
+    public static Screen of(String name, String createdBy) {
+        return new Screen(name, createdBy);
     }
 }
