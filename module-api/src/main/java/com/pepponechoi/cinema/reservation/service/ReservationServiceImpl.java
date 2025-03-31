@@ -1,5 +1,7 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.pepponechoi.cinema.event.EventPublisher;
+import com.pepponechoi.cinema.event.ReservationCompletedEvent;
 import com.pepponechoi.cinema.exception.enums.BadRequestErrorCode;
 import com.pepponechoi.cinema.exception.enums.ConfliectErrorCode;
 import com.pepponechoi.cinema.exception.enums.NotFoundErrorCode;
@@ -34,6 +36,7 @@ public class ReservationServiceImpl implements ReservationService {
     private final UserRepository userRepository;
     private final SeatRepository seatRepository;
     private final ScheduleRepository scheduleRepository;
+    private final EventPublisher eventPublisher;
 
     @Override
     @Transactional
@@ -126,6 +129,11 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 
         reservationRepository.save(reservation);
+
+        eventPublisher.publish(new ReservationCompletedEvent(
+            reservation.getId(),
+            reservation.getUser().getId()
+        ));
 
         return ReservationResponse.of(reservation);
     }

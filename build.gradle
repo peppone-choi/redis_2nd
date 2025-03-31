@@ -116,12 +116,29 @@ project(":module-domain") {
 	}
 }
 
+project(":module-core") {
+	bootJar {
+		enabled = false
+	}
+
+	jar {
+		enabled = true
+	}
+
+	dependencies {
+		implementation project(":module-common")
+		implementation project(":module-domain")
+		implementation("org.springframework.boot:spring-boot-starter")
+	}
+}
+
 // API 모듈: 컨트롤러와 API 엔드포인트 관리
 project(":module-api") {
 	dependencies {
 		implementation project(":module-domain")
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation project(":module-common")
+		implementation project(":module-core")
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 		implementation 'org.springframework.boot:spring-boot-starter-cache'
 		implementation 'com.github.ben-manes.caffeine:caffeine'
@@ -151,6 +168,7 @@ project(":module-application") {
 		implementation project(":module-common")
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation project(":module-core")
 		implementation project(":module-api")
 	}
 }
