@@ -11,4 +11,6 @@ public interface ReservationRepository {
     Optional<Reservation> findById(Long id);
     List<Reservation> findAll();
     void deleteByIdIn(Collection<Long> ids);
+
+    void deleteAll();
 }

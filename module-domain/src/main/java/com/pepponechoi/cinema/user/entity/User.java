@@ -40,6 +40,16 @@ public class User extends BaseEntity {
     @OneToMany(orphanRemoval = true, mappedBy = "user")
     private List<Reservation> reservations = new ArrayList<>();
 
+    protected User(String email, String password, String nickname) {
+        this.email = email;
+        this.password = password;
+        this.nickname = nickname;
+    }
+
+    public static User of(String email, String password, String nickname) {
+        return new User(email, password, nickname);
+    }
+
     public void addReservation(Reservation reservation) {
         this.reservations.add(reservation);
     }
@@ -55,4 +65,5 @@ public class User extends BaseEntity {
         }
         this.reservations = filtered;
     }
+
 }
