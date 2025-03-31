@@ -18,6 +18,7 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
+import jakarta.persistence.EntityManager;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -25,12 +26,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
     private final UserRepository userRepository;
@@ -38,7 +41,10 @@ public class ReservationServiceImpl implements ReservationService {
     private final ScheduleRepository scheduleRepository;
     private final EventPublisher eventPublisher;
 
+    private final EntityManager entityManager;
+
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public ReservationResponse create(CreateReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(
                 () -> {
@@ -127,12 +133,25 @@ public class ReservationServiceImpl implements ReservationService {
 
         Reservation reservation = Reservation.of(user, seats, schedule, String.valueOf(user.getId()));
 
-        reservationRepository.save(reservation);
 
-        eventPublisher.publish(new ReservationCompletedEvent(
-            reservation.getId(),
-            reservation.getUser().getId()
-        ));
+        try {
+            reservationRepository.save(reservation);
+
+            entityManager.flush();
+
+            seats.forEach(seat -> {
+                seat.setReservation(reservation);
+            });
+
+            eventPublisher.publish(new ReservationCompletedEvent(
+                reservation.getId(),
+                reservation.getUser().getId()
+            ));
+        } catch (ObjectOptimisticLockingFailureException exception) {
+            System.out.println(exception.getMessage());
+            throw exception;
+        }
+
 
         return ReservationResponse.of(reservation);
     }

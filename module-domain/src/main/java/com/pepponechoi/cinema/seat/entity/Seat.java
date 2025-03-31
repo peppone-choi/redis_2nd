@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,9 @@ public class Seat extends BaseEntity {
 
     @Column
     private Integer columnNo;
+
+    @Version
+    private Long version;
 
     @ManyToOne
     @JoinColumn(name = "screen_id")

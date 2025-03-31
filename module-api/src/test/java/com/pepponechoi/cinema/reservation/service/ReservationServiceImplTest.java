@@ -28,6 +28,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -62,7 +63,7 @@ public class ReservationServiceImplTest {
     private PlatformTransactionManager transactionManager;
 
     @Test
-    @DisplayName("락이 없을 때 동시에 여러 스레드가 같은 좌석을 예약하면 동시성 문제 발생")
+    @DisplayName("낙관적 락일 경우 ")
     public void concurrentReservationWithoutLock() throws InterruptedException {
         // given: 초기 데이터 설정
         // 트랜잭션 시작
@@ -76,8 +77,14 @@ public class ReservationServiceImplTest {
             // 사용자 생성
             User user1 = User.of("test1@test.com", "test1", "test1");
             User user2 = User.of("test2@test.com", "test2", "test2");
+            User user3 = User.of("test3@test.com", "test3", "test3");
+            User user4 = User.of("test4@test.com", "test4", "test4");
+            User user5 = User.of("test5@test.com", "test5", "test5");
             userRepository.save(user1);
             userRepository.save(user2);
+            userRepository.save(user3);
+            userRepository.save(user4);
+            userRepository.save(user5);
 
             // 스크린 생성
             Screen screen = Screen.of( "1관", "pepponechoi");
@@ -100,8 +107,6 @@ public class ReservationServiceImplTest {
             transactionManager.commit(status);
 
             // 테스트에 필요한 변수들
-            final Long userId1 = user1.getId();
-            final Long userId2 = user2.getId();
             final Long scheduleId = schedule.getId();
             final int THREAD_COUNT = 5;
 
@@ -114,9 +119,8 @@ public class ReservationServiceImplTest {
             CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
 
             // when: 여러 스레드에서 동시에 같은 좌석 예약 시도
-            for (int i = 0; i < THREAD_COUNT; i++) {
-                final long userId = (i % 2 == 0) ? userId1 : userId2;
-
+            for (int i = 1; i <= THREAD_COUNT; i++) {
+                long finalI = (long) i;
                 executorService.submit(() -> {
                     try {
                         // 각 스레드에서 새 트랜잭션 시작
@@ -125,7 +129,7 @@ public class ReservationServiceImplTest {
 
                         try {
                             CreateReservationRequest request = new CreateReservationRequest(
-                                userId, List.of(new NestedSeat('A', 1)), scheduleId
+                                finalI, List.of(new NestedSeat('A', 1)), scheduleId
                             );
 
                             // 예약 시도
@@ -134,13 +138,17 @@ public class ReservationServiceImplTest {
                             // 성공시 커밋
                             transactionManager.commit(threadStatus);
                             successCount.incrementAndGet();
-                            System.out.println("예약 성공: 사용자 " + userId);
+                            System.out.println("예약 성공: 사용자 " + finalI);
 
+                        } catch (OptimisticLockingFailureException e) {
+                            transactionManager.rollback(threadStatus);
+                            errorCount.incrementAndGet();
+                            System.out.println("예약 실패: 사용자 " + finalI + ", 이유: Optimistic Lock 실패");
                         } catch (Exception e) {
                             // 실패시 롤백
                             transactionManager.rollback(threadStatus);
                             errorCount.incrementAndGet();
-                            System.out.println("예약 실패: 사용자 " + userId + ", 이유: " + e.getMessage());
+                            System.out.println("예약 실패: 사용자 " + finalI + ", 이유: " + e.getMessage());
                         }
                     } finally {
                         latch.countDown();
