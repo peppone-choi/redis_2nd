@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RLock;
@@ -163,8 +164,9 @@ public class ReservationServiceImpl implements ReservationService {
             Thread.currentThread().interrupt();
             ConflictException exception = new ConflictException();
             exception.setDetail("록 획득 중 인터럽트 되었습니다.");
+        } finally {
+            locks.forEach(Lock::unlock);
         }
-
         return ReservationResponse.of(reservation);
     }
 }
