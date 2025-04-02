@@ -24,6 +24,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,16 +76,12 @@ public class ReservationServiceImplTest {
             reservationRepository.deleteAll();
 
             // 사용자 생성
-            User user1 = User.of("test1@test.com", "test1", "test1");
-            User user2 = User.of("test2@test.com", "test2", "test2");
-            User user3 = User.of("test3@test.com", "test3", "test3");
-            User user4 = User.of("test4@test.com", "test4", "test4");
-            User user5 = User.of("test5@test.com", "test5", "test5");
-            userRepository.save(user1);
-            userRepository.save(user2);
-            userRepository.save(user3);
-            userRepository.save(user4);
-            userRepository.save(user5);
+            List<User> users = IntStream.rangeClosed(1, 5)
+                .mapToObj(i -> User.of("test" + i + "@test.com", "test" + i, "test" + i))
+                .toList();
+
+
+            userRepository.saveAll(users);
 
             // 스크린 생성
             Screen screen = Screen.of( "1관", "pepponechoi");
