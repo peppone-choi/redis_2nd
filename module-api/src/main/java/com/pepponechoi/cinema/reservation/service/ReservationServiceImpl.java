@@ -8,7 +8,7 @@ import com.pepponechoi.cinema.exception.enums.NotFoundErrorCode;
 import com.pepponechoi.cinema.exception.exception.BadRequestException;
 import com.pepponechoi.cinema.exception.exception.ConflictException;
 import com.pepponechoi.cinema.exception.exception.NotFoundException;
-import com.pepponechoi.cinema.manager.LockManager;
+import com.pepponechoi.cinema.manager.RedisManager;
 import com.pepponechoi.cinema.manager.RedisKeyResolver;
 import com.pepponechoi.cinema.reservation.dto.request.create.CreateReservationRequest;
 import com.pepponechoi.cinema.reservation.dto.response.ReservationResponse;
@@ -42,7 +42,7 @@ public class ReservationServiceImpl implements ReservationService {
     private final ScheduleRepository scheduleRepository;
     private final EventPublisher eventPublisher;
     private final RedissonClient redisson;
-    private final LockManager lockManager;
+    private final RedisManager redisManager;
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -138,7 +138,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         for (var seat : request.seats()) {
             String key = RedisKeyResolver.getKey(seat.rowNo() + "" + seat.columnNo(), "Seat");
-            lockManager.executeWithLock(key, () -> {
+            redisManager.executeWithLock(key, () -> {
                 reservationRepository.save(reservation);
 
                 seats.forEach(s -> {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class LockManagerImpl implements LockManager {
+public class LockManagerImpl implements RedisManager {
 
     private final RedissonClient redisson;
 
