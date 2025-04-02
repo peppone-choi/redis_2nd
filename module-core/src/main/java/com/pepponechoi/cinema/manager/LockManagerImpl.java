@@ -3,6 +3,7 @@ package com.pepponechoi.cinema.manager;
 import com.pepponechoi.cinema.exception.enums.ConfliectErrorCode;
 import com.pepponechoi.cinema.exception.exception.ConflictException;
 import java.util.Optional;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RBucket;
@@ -17,8 +18,8 @@ public class LockManagerImpl implements RedisManager {
     private final RedissonClient redisson;
 
     private final String LOCK_SUFFIX = "lock";
-    private final Long WAIT_TIME_SECONDS = 2L;
-    private final Long LEASE_TIME_SECONDS = 1L;
+    private final Long WAIT_TIME_SECONDS = 5L;
+    private final Long LEASE_TIME_SECONDS = 3L;
 
     @Override
     public <T> Optional<T> getValue(String key) {
@@ -35,11 +36,18 @@ public class LockManagerImpl implements RedisManager {
     }
 
     @Override
+    public <T> void deleteValue(String key) {
+        if (redisson.getBucket(key).isExists()) {
+            redisson.getBucket(key).delete();
+        }
+    }
+
+    @Override
     public void executeWithLock(String key, Runnable action) {
         RLock lock = redisson.getLock(key + LOCK_SUFFIX);
 
         try {
-            boolean isLocked = lock.tryLock(WAIT_TIME_SECONDS, LEASE_TIME_SECONDS, TimeUnit.SECONDS);
+            boolean isLocked = tryLockWithRetry(lock, WAIT_TIME_SECONDS, LEASE_TIME_SECONDS);
             if (isLocked) {
                 // 잠금 획득에 성공하면 작업 실행
                 action.run();
@@ -59,6 +67,33 @@ public class LockManagerImpl implements RedisManager {
         } finally {
             unlock(lock);
         }
+    }
+
+    private boolean tryLockWithRetry(RLock lock, long waitTime, long leaseTime) throws InterruptedException {
+        final int MAX_RETRIES = 3;
+        final int INITIAL_RETRY_DELAY_MS = 100;
+        final long MAX_RETRY_DELAY_MS = 1000;
+        final Random random = new Random();
+
+        int retryCount = 0;
+        while (retryCount <= MAX_RETRIES) {
+            boolean isLocked = lock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS);
+            if (isLocked) {
+                return true;
+            }
+            retryCount++;
+            if (retryCount <= MAX_RETRIES) {
+                long delay = INITIAL_RETRY_DELAY_MS * (long) Math.pow(2, retryCount - 1);
+                delay = Math.min(delay, MAX_RETRY_DELAY_MS);
+
+                int jitterRange = (int)(delay * 0.4);
+                int jitter = random.nextInt(jitterRange) - (int)(delay * 0.2);
+                delay += jitter;
+
+                Thread.sleep(Math.max(delay, INITIAL_RETRY_DELAY_MS));
+            }
+        }
+        return false;
     }
 
     private void unlock(RLock lock) {
