@@ -8,8 +8,8 @@ import com.pepponechoi.cinema.exception.enums.NotFoundErrorCode;
 import com.pepponechoi.cinema.exception.exception.BadRequestException;
 import com.pepponechoi.cinema.exception.exception.ConflictException;
 import com.pepponechoi.cinema.exception.exception.NotFoundException;
-import com.pepponechoi.cinema.manager.RedisManager;
 import com.pepponechoi.cinema.manager.RedisKeyResolver;
+import com.pepponechoi.cinema.manager.RedisManager;
 import com.pepponechoi.cinema.reservation.dto.request.create.CreateReservationRequest;
 import com.pepponechoi.cinema.reservation.dto.response.ReservationResponse;
 import com.pepponechoi.cinema.reservation.entity.Reservation;
@@ -29,7 +29,6 @@ import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -45,7 +44,6 @@ public class ReservationServiceImpl implements ReservationService {
     private final RedisManager redisManager;
 
     @Override
-    @Transactional(isolation = Isolation.SERIALIZABLE)
     public ReservationResponse create(CreateReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(
             () -> {
@@ -85,7 +83,7 @@ public class ReservationServiceImpl implements ReservationService {
                     ConflictException exception = new ConflictException();
                     exception.setErrorCode(ConfliectErrorCode.CONFLICT);
                     exception.setDetail("해당하는 좌석이 없거나 이미 예약되어 있는 좌석입니다.");
-                    throw exception;
+                    return exception;
                 }
             )).toList();
 
@@ -132,25 +130,25 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             });
         }
-
+        String key = RedisKeyResolver.getKey(request.userId() + "" + request.scheduleId(), "Seat");
         Reservation reservation = Reservation.of(user, seats, schedule,
             String.valueOf(user.getId()));
-
-        for (var seat : request.seats()) {
-            String key = RedisKeyResolver.getKey(seat.rowNo() + "" + seat.columnNo(), "Seat");
-            redisManager.executeWithLock(key, () -> {
-                reservationRepository.save(reservation);
-
-                seats.forEach(s -> {
-                    s.setReservation(reservation);
-                });
-
-                eventPublisher.publish(new ReservationCompletedEvent(
-                    reservation.getId(),
-                    reservation.getUser().getId()
-                ));
-            });
-        }
+        redisManager.executeWithLock(key,
+        new Runnable() {
+                @Override
+                @Transactional
+                public void run() {
+                    reservationRepository.save(reservation);
+                    seats.forEach(s -> {
+                        s.setReservation(reservation);
+                    });
+                    eventPublisher.publish(new ReservationCompletedEvent(
+                        reservation.getId(),
+                        reservation.getUser().getId()
+                    ));
+                }
+            }
+        );
         return ReservationResponse.of(reservation);
     }
 }

@@ -1,5 +1,6 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.pepponechoi.cinema.exception.exception.ConflictException;
 import com.pepponechoi.cinema.movie.entity.Movie;
 import com.pepponechoi.cinema.movie.enums.Genre;
 import com.pepponechoi.cinema.movie.enums.Rating;
@@ -141,11 +142,11 @@ public class ReservationServiceImplTest {
                             transactionManager.rollback(threadStatus);
                             errorCount.incrementAndGet();
                             System.out.println("예약 실패: 사용자 " + finalI + ", 이유: Optimistic Lock 실패");
-                        } catch (Exception e) {
+                        } catch (ConflictException e) {
                             // 실패시 롤백
                             transactionManager.rollback(threadStatus);
                             errorCount.incrementAndGet();
-                            System.out.println("예약 실패: 사용자 " + finalI + ", 이유: " + e.getMessage());
+                            System.out.println("예약 실패: 사용자 " + finalI + ", 이유: " + e.getDetail());
                         }
                     } finally {
                         latch.countDown();
