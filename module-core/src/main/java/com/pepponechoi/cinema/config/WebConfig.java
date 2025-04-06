@@ -15,8 +15,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(ipBlockInterceptor)
-            .addPathPatterns("/**");
+            .addPathPatterns("/api/v1/**");
         registry.addInterceptor(movieRateLimitInterceptor)
-            .addPathPatterns("/movies/**");
+            .addPathPatterns("/api/v1/movies/**");
     }
 }

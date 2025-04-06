@@ -9,7 +9,9 @@ import com.pepponechoi.cinema.exception.exception.ForbiddenException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,7 +25,7 @@ public class MovieRateLimitInterceptor implements HandlerInterceptor {
     private final BlockService blockService;
 
     // IP별 요청 카운트를 추적하기 위한 캐시
-    private final Cache<String, Integer> requestCountCache = CacheBuilder.newBuilder()
+    private final Cache<String, AtomicInteger> requestCountCache = CacheBuilder.newBuilder()
         .expireAfterWrite(1, TimeUnit.MINUTES)
         .build();;
 
@@ -61,13 +63,12 @@ public class MovieRateLimitInterceptor implements HandlerInterceptor {
     }
 
     private int incrementRequestCount(String ipAddress) {
-        Integer count = requestCountCache.getIfPresent(ipAddress);
-        if (count == null) {
-            count = 0;
+        try {
+            AtomicInteger counter = requestCountCache.get(ipAddress, () -> new AtomicInteger(0));
+            return counter.incrementAndGet();
+        } catch (ExecutionException e) {
+            return 1;
         }
-        count++;
-        requestCountCache.put(ipAddress, count);
-        return count;
     }
 
     private RateLimiter getRateLimiter(String ipAddress) {

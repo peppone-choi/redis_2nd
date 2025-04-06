@@ -1,5 +1,7 @@
 package com.pepponechoi.cinema.reservation.service;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.pepponechoi.cinema.event.EventPublisher;
 import com.pepponechoi.cinema.event.ReservationCompletedEvent;
 import com.pepponechoi.cinema.exception.enums.BadRequestErrorCode;
@@ -20,11 +22,13 @@ import com.pepponechoi.cinema.seat.entity.Seat;
 import com.pepponechoi.cinema.seat.repository.SeatRepository;
 import com.pepponechoi.cinema.user.entity.User;
 import com.pepponechoi.cinema.user.repository.UserRepository;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RedissonClient;
@@ -43,7 +47,15 @@ public class ReservationServiceImpl implements ReservationService {
     private final RedissonClient redisson;
     private final RedisManager redisManager;
 
+    private final Cache<String, LocalDateTime> lastReservationTimeCache =
+        CacheBuilder.newBuilder()
+            .expireAfterWrite(6, TimeUnit.HOURS)
+            .build();
+
+    private static final long RESERVATION_INTERVAL_MINUTES = 5;
+
     @Override
+    @Transactional
     public ReservationResponse create(CreateReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(
             () -> {
@@ -130,6 +142,13 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             });
         }
+        if (!canReserve(user.getId(), schedule.getId())) {
+            ConflictException exception = new ConflictException();
+            exception.setErrorCode(ConfliectErrorCode.CONFLICT);
+            exception.setDetail("같은 시간대의 영화를 5분에 1번씩 예약 할 수 있습니다.");
+            throw exception;
+        }
+
         String key = RedisKeyResolver.getKey(request.userId() + "" + request.scheduleId(), "Seat");
         Reservation reservation = Reservation.of(user, seats, schedule,
             String.valueOf(user.getId()));
@@ -149,6 +168,30 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             }
         );
+        recordReservation(user.getId(), schedule.getId());
         return ReservationResponse.of(reservation);
+    }
+
+    private boolean canReserve(Long userId, Long scheduleId) {
+        String cacheKey = generateCacheKey(userId, scheduleId);
+        LocalDateTime lastReservationTime = lastReservationTimeCache.getIfPresent(cacheKey);
+
+        if (lastReservationTime == null) {
+            return true;
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime nextReservationTime = lastReservationTime.plusMinutes(RESERVATION_INTERVAL_MINUTES);
+        return now.isAfter(nextReservationTime);
+    }
+
+    @Transactional
+    public void recordReservation(Long userId, Long scheduleId) {
+        String cacheKey = generateCacheKey(userId, scheduleId);
+        lastReservationTimeCache.put(cacheKey, LocalDateTime.now());
+    }
+
+    private String generateCacheKey(Long userId, Long scheduleId) {
+        return RedisKeyResolver.getKey(userId + "" + scheduleId, "Schedule");
     }
 }

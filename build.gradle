@@ -144,6 +144,7 @@ project(":module-core") {
 project(":module-api") {
 	dependencies {
 		implementation project(":module-domain")
+		implementation 'com.google.guava:guava:31.1-jre'
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation project(":module-common")
 		implementation project(":module-core")
