@@ -29,6 +29,12 @@ public class BlockServiceImpl implements BlockService {
     }
 
     @Override
+    public Block getBlock(String ip) {
+        Optional<Block> block = blockRepository.findByIp(ip);
+        return block.orElse(null);
+    }
+
+    @Override
     public void unblock(String ip) {
         Optional<Block> block = blockRepository.findByIp(ip);
         if (block.isPresent()) {

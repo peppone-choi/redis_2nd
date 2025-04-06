@@ -1,6 +1,5 @@
 package com.pepponechoi.cinema.blockIps.entity;
 
-import com.pepponechoi.cinema.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "blocked_ips")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Block extends BaseEntity {
+public class Block {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
